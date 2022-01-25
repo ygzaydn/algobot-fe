@@ -1,0 +1,34 @@
+.header {
+    margin: auto;
+
+    @include maxWidth;
+
+    &__logo {
+        cursor: pointer !important;
+        position: relative;
+
+        &--image {
+            @include centerAbsolute;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10rem;
+        &--item {
+            padding: 1rem 2rem;
+            transition: all 0.4s;
+            color: $text-color-secondary;
+            cursor: pointer;
+            &:hover {
+                color: $text-color-primary;
+            }
+        }
+        &--active {
+            cursor: pointer;
+            padding: 1rem 2rem;
+            color: $text-color-primary;
+        }
+    }
+}

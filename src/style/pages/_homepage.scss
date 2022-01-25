@@ -1,0 +1,39 @@
+.homepage {
+    padding-top: 10rem;
+    &__container {
+        margin: auto;
+        @include maxWidth;
+    }
+
+    &__landing {
+        display: flex;
+        &--text {
+            & h6 {
+                color: $text-color-primary;
+                padding-bottom: 2rem;
+                text-transform: uppercase;
+            }
+            background: radial-gradient(
+                56.53% 37.19% at 58.04% 48.89%,
+                #36cfff 0%,
+                #ebc1f2 52.6%,
+                #f6edff 96.35%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-left: 5rem;
+
+            & h2 {
+                @include yesevaFont;
+            }
+        }
+        &--logo {
+            @include displayFlexCenter;
+            & svg {
+                height: 100%;
+                position: relative;
+                bottom: 10rem;
+            }
+        }
+    }
+}
