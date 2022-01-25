@@ -15,12 +15,16 @@
     &__menu {
         display: flex;
         justify-content: flex-end;
-        padding-right: 10rem;
+        align-items: center;
         &--item {
             padding: 1rem 2rem;
             transition: all 0.4s;
             color: $text-color-secondary;
+            z-index: 5000;
             cursor: pointer;
+            & strong {
+                color: $text-color-primary;
+            }
             &:hover {
                 color: $text-color-primary;
             }

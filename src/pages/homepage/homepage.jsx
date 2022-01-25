@@ -1,15 +1,15 @@
 import React from "react";
 
 import { Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 
 import "../../style/main.scss";
 
+import { connect } from "react-redux";
+import { homepageText } from "../../constants";
+
 import { ReactComponent as HomepageLandingSvg } from "../../assets/illustrations/homepage-landing.svg";
 
-const Homepage = () => {
-    const navigate = useNavigate();
-
+const Homepage = ({ language }) => {
     return (
         <Grid container className="homepage">
             <Grid container className="homepage__container">
@@ -21,10 +21,10 @@ const Homepage = () => {
                         className="homepage__landing--text"
                     >
                         <Typography variant="h6">
-                            Upper text will appear here
+                            {homepageText[language].homepageLandingUpText}
                         </Typography>
                         <Typography variant="h2">
-                            Example landing page text will appear here
+                            {homepageText[language].homepageLandingMainText}
                         </Typography>
                     </Grid>
                     <Grid
@@ -41,4 +41,6 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+const mapStateToProps = (state) => ({ language: state.lang });
+
+export default connect(mapStateToProps, null)(Homepage);

@@ -1,0 +1,4 @@
+export const ActionTypes = {
+    SWITCH_LANGUAGE_EN: "SWITCH_LANGUAGE_EN",
+    SWITCH_LANGUAGE_TR: "SWITCH_LANGUAGE_TR",
+};

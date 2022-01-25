@@ -3,9 +3,13 @@ import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import "../../style/main.scss";
+import { connect } from "react-redux";
+import { headerText } from "../../constants";
 
-const Header = () => {
+import "../../style/main.scss";
+import { ActionTypes } from "../../redux/actionTypes";
+
+const Header = ({ language, changeLanguageToTR, changeLanguageToEN }) => {
     const navigate = useNavigate();
 
     return (
@@ -26,25 +30,38 @@ const Header = () => {
                         variant="subtitle1"
                         onClick={() => navigate("/")}
                     >
-                        HOME
+                        {headerText[language].menuItem1}
                     </Typography>
                     <Typography
                         className="header__menu--item"
                         variant="subtitle1"
                     >
-                        FAQ
+                        {headerText[language].menuItem2}
                     </Typography>
+
+                    {language === "en" ? (
+                        <Typography
+                            className="header__menu--item"
+                            variant="subtitle1"
+                            onClick={() => changeLanguageToTR()}
+                        >
+                            TR/<strong>EN</strong>{" "}
+                        </Typography>
+                    ) : (
+                        <Typography
+                            className="header__menu--item"
+                            variant="subtitle1"
+                            onClick={() => changeLanguageToEN()}
+                        >
+                            <strong>TR</strong>/EN{" "}
+                        </Typography>
+                    )}
+
                     <Typography
                         className="header__menu--item"
                         variant="subtitle1"
                     >
-                        TR/EN
-                    </Typography>
-                    <Typography
-                        className="header__menu--item"
-                        variant="subtitle1"
-                    >
-                        SIGN IN
+                        {headerText[language].menuItem3}
                     </Typography>
                 </Grid>
             </Grid>
@@ -52,4 +69,13 @@ const Header = () => {
     );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({ language: state.lang });
+
+const mapDispatchToProps = (dispatch) => ({
+    changeLanguageToTR: () =>
+        dispatch({ type: ActionTypes.SWITCH_LANGUAGE_TR }),
+    changeLanguageToEN: () =>
+        dispatch({ type: ActionTypes.SWITCH_LANGUAGE_EN }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

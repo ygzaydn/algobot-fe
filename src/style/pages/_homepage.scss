@@ -19,6 +19,7 @@
                 #ebc1f2 52.6%,
                 #f6edff 96.35%
             );
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             padding-left: 5rem;
@@ -29,10 +30,10 @@
         }
         &--logo {
             @include displayFlexCenter;
+            position: relative;
             & svg {
-                height: 100%;
-                position: relative;
-                bottom: 10rem;
+                @include centerAbsolute;
+                width: 100%;
             }
         }
     }
