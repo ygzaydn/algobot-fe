@@ -1,5 +1,9 @@
 .homepage {
     padding-top: 10rem;
+
+    @include respond(tab-port) {
+        padding-top: 5rem;
+    }
     &__container {
         margin: auto;
         @include maxWidth;
@@ -23,6 +27,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             padding-left: 5rem;
+            @include respond(tab-port) {
+                padding: 0 15px;
+            }
 
             & h2 {
                 @include yesevaFont;
