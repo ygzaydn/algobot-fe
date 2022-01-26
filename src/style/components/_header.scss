@@ -18,6 +18,8 @@
     &__menu {
         justify-content: flex-end;
         align-items: center;
+        &--mobile {
+        }
         &--item {
             padding: 1rem 2rem;
             transition: all 0.4s;
@@ -31,19 +33,14 @@
                 color: $text-color-primary;
             }
             &--mobile {
-                &:not(&:last-child) {
-                    border-bottom: 0.1px solid white;
-                }
-
                 width: 100%;
                 text-align: center;
             }
+            &--active {
+                color: $text-color-primary;
+            }
         }
-        &--active {
-            cursor: pointer;
-            padding: 1rem 2rem;
-            color: $text-color-primary;
-        }
+
         &--mobile {
             display: none;
             @include respond(tab-port) {
@@ -53,6 +50,9 @@
             }
             & svg {
                 fill: $text-color-primary;
+            }
+            &:not(&:last-child) {
+                border-bottom: 0.1px solid white;
             }
         }
         &--desktop {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -6,22 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { headerText } from "../../constants";
 
-import "../../style/main.scss";
-import { ActionTypes } from "../../redux/actionTypes";
-import MenuIcon from "@mui/icons-material/Menu";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import HeaderMenu from "./headerMenu";
+import HeaderMenuItem from "./headerMenuItem";
+import HeaderLanguageButton from "./headerLanguageButton";
 
-const Header = ({ language, changeLanguageToTR, changeLanguageToEN }) => {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
+const Header = ({ language }) => {
     const navigate = useNavigate();
 
     return (
@@ -37,130 +26,30 @@ const Header = ({ language, changeLanguageToTR, changeLanguageToEN }) => {
                     </Typography>
                 </Grid>
                 <Grid item xs={8} className="header__menu--desktop">
-                    <Typography
-                        className="header__menu--active"
-                        variant="subtitle1"
-                        onClick={() => navigate("/")}
-                    >
-                        {headerText[language].menuItem1}
-                    </Typography>
-                    <Typography
-                        className="header__menu--item"
-                        variant="subtitle1"
-                        onClick={() => navigate("#faq")}
-                    >
-                        {headerText[language].menuItem2}
-                    </Typography>
+                    <HeaderMenuItem
+                        status="active"
+                        size="desktop"
+                        text={headerText[language].menuItem1}
+                        clickFunc={() => navigate("/")}
+                    />
+                    <HeaderMenuItem
+                        size="desktop"
+                        text={headerText[language].menuItem2}
+                        clickFunc={() => navigate("/#faq")}
+                    />
+                    <HeaderLanguageButton />
 
-                    {language === "en" ? (
-                        <Typography
-                            className="header__menu--item"
-                            variant="subtitle1"
-                            onClick={() => changeLanguageToTR()}
-                        >
-                            TR/<strong>EN</strong>{" "}
-                        </Typography>
-                    ) : (
-                        <Typography
-                            className="header__menu--item"
-                            variant="subtitle1"
-                            onClick={() => changeLanguageToEN()}
-                        >
-                            <strong>TR</strong>/EN{" "}
-                        </Typography>
-                    )}
-
-                    <Typography
-                        className="header__menu--item"
-                        variant="subtitle1"
-                        onClick={() => navigate("/signin")}
-                    >
-                        {headerText[language].menuItem3}
-                    </Typography>
+                    <HeaderMenuItem
+                        size="desktop"
+                        text={headerText[language].menuItem3}
+                        clickFunc={() => navigate("/signin")}
+                    />
                 </Grid>
                 <Grid item xs={8} className="header__menu--mobile">
                     <Grid item xs={4} />
                     <Grid item xs={7} justify="center" display="flex">
-                        {language === "en" ? (
-                            <Typography
-                                className="header__menu--item"
-                                variant="subtitle1"
-                                onClick={() => changeLanguageToTR()}
-                            >
-                                TR/<strong>EN</strong>{" "}
-                            </Typography>
-                        ) : (
-                            <Typography
-                                className="header__menu--item"
-                                variant="subtitle1"
-                                onClick={() => changeLanguageToEN()}
-                            >
-                                <strong>TR</strong>/EN{" "}
-                            </Typography>
-                        )}
-                        <MenuIcon
-                            id="basic-button"
-                            aria-controls={open ? "basic-menu" : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? "true" : undefined}
-                            onClick={handleClick}
-                            className="header__menu--item"
-                        />
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            PaperProps={{
-                                style: {
-                                    borderRadius: 20,
-                                    border: "1px solid white",
-                                },
-                            }}
-                            MenuListProps={{
-                                style: {
-                                    borderBottom: "0.1px solid lightgray",
-                                    "aria-labelledby": "basic-button",
-                                },
-                            }}
-                        >
-                            <MenuItem
-                                onClick={handleClose}
-                                className="header__menu--item"
-                            >
-                                <Typography
-                                    className="header__menu--active header__menu--item--mobile"
-                                    variant="subtitle1"
-                                    onClick={() => navigate("/")}
-                                >
-                                    {headerText[language].menuItem1}
-                                </Typography>
-                            </MenuItem>
-                            <MenuItem
-                                onClick={handleClose}
-                                className="header__menu--item"
-                            >
-                                <Typography
-                                    className="header__menu--item header__menu--item--mobile"
-                                    variant="subtitle1"
-                                    onClick={() => navigate("#faq")}
-                                >
-                                    {headerText[language].menuItem2}
-                                </Typography>
-                            </MenuItem>
-                            <MenuItem
-                                onClick={handleClose}
-                                className="header__menu--item header__menu--item--mobile"
-                            >
-                                <Typography
-                                    className="header__menu--item"
-                                    variant="subtitle1"
-                                    onClick={() => navigate("/signin")}
-                                >
-                                    {headerText[language].menuItem3}
-                                </Typography>
-                            </MenuItem>
-                        </Menu>
+                        <HeaderLanguageButton />
+                        <HeaderMenu />
                     </Grid>
                     <Grid item xs={1} />
                 </Grid>
@@ -171,11 +60,4 @@ const Header = ({ language, changeLanguageToTR, changeLanguageToEN }) => {
 
 const mapStateToProps = (state) => ({ language: state.lang });
 
-const mapDispatchToProps = (dispatch) => ({
-    changeLanguageToTR: () =>
-        dispatch({ type: ActionTypes.SWITCH_LANGUAGE_TR }),
-    changeLanguageToEN: () =>
-        dispatch({ type: ActionTypes.SWITCH_LANGUAGE_EN }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, null)(Header);
