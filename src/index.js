@@ -11,13 +11,11 @@ import store from "./redux/store";
 import { theme } from "./theme/theme";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </ThemeProvider>
-    </React.StrictMode>,
+    <ThemeProvider theme={theme}>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </ThemeProvider>,
     document.getElementById("root")
 );
 
