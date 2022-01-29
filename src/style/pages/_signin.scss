@@ -1,4 +1,6 @@
 .signin {
   @include displayFlexCenter;
   padding-top: 5rem;
+  max-width: 1400px;
+  margin: auto;
 }
