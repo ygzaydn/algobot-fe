@@ -1,0 +1,23 @@
+.footer {
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 0 1rem 0;
+  max-width: 1400px;
+  margin: auto;
+
+  &__grid {
+    margin: auto;
+    color: $text-color-primary;
+    text-align: center;
+  }
+
+  &__name {
+    padding-top: 2rem;
+  }
+  &__info {
+    color: $text-color-secondary;
+  }
+  &__rights {
+    padding-top: 8rem;
+  }
+}

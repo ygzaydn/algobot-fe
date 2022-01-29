@@ -2,20 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Yeseva+One&display=swap");
 
 body {
-    box-sizing: border-box;
-    padding: 3rem;
-    @include respond(tab-port) {
-        padding: 0;
-    }
-    margin: 0;
-    font-family: "Josefin Sans", "Yeseva One", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #080410;
+  box-sizing: border-box;
+  padding: 3rem 4rem 0 4rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+  margin: 0;
+  font-family: "Josefin Sans", "Yeseva One", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #080410;
 }
 
 html {
-    @include respond(tab-port) {
-        font-size: 60%;
-    }
+  @include respond(tab-port) {
+    font-size: 60%;
+  }
 }

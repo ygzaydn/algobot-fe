@@ -1,203 +1,204 @@
 .homepage {
-    padding-top: 10rem;
+  padding-top: 10rem;
 
+  @include respond(tab-port) {
+    padding-top: 5rem;
+  }
+  &__container {
+    margin: auto;
+    @include maxWidth;
+  }
+
+  &__landing {
+    display: flex;
+    position: relative;
+
+    &--text {
+      & h6 {
+        color: $text-color-primary;
+        padding-bottom: 2rem;
+        text-transform: uppercase;
+      }
+      background: radial-gradient(
+        56.53% 37.19% at 58.04% 48.89%,
+        #36cfff 0%,
+        #ebc1f2 52.6%,
+        #f6edff 96.35%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-left: 5rem;
+      @include respond(tab-port) {
+        padding: 0 15px;
+      }
+
+      & h2 {
+        @include yesevaFont;
+      }
+    }
+
+    &--gradient {
+      z-index: -1;
+      overflow: hidden;
+      &--1 {
+        @include respond(tab-port) {
+          display: none;
+        }
+        position: absolute;
+        width: 20rem;
+        height: 25rem;
+        left: 5rem;
+        top: 10rem;
+
+        background: radial-gradient(
+          63.57% 81.24% at 29.44% -4.85%,
+          rgba(85, 245, 255, 0.75) 0%,
+          rgba(253, 156, 208, 0) 96.17%
+        );
+        filter: blur(100px);
+        transform: rotate(-154.6deg);
+      }
+      &--2 {
+        @include respond(tab-port) {
+          display: none;
+        }
+        position: absolute;
+        width: 20rem;
+        height: 25rem;
+        right: 5rem;
+        top: -10rem;
+
+        background: radial-gradient(
+          40.53% 57.61% at 61.7% 18.78%,
+          rgba(201, 85, 255, 0.75) 0%,
+          rgba(253, 226, 156, 0) 96.17%
+        );
+        filter: blur(100px);
+      }
+    }
+
+    &--logo {
+      @include displayFlexCenter;
+      position: relative;
+      & svg {
+        @include centerAbsolute;
+        z-index: 1;
+        width: 100%;
+      }
+    }
+  }
+
+  &__features {
+    @include displayFlexCenter;
+    padding-top: 12rem;
     @include respond(tab-port) {
-        padding-top: 5rem;
-    }
-    &__container {
-        margin: auto;
-        @include maxWidth;
+      padding: 12rem 1rem;
     }
 
-    &__landing {
-        display: flex;
+    &__logogrid {
+      @include respond(tab-port) {
+        display: none;
+      }
+      & svg {
+        z-index: 1;
+        width: 100%;
         position: relative;
+        top: 10%;
+      }
+    }
+    &__title {
+      color: $text-color-primary;
+      padding-bottom: 5rem;
+      text-align: center;
+      @include yesevaFont;
+    }
+    &__box {
+      display: flex;
+      padding: 1.5rem 2rem;
 
-        &--text {
-            & h6 {
-                color: $text-color-primary;
-                padding-bottom: 2rem;
-                text-transform: uppercase;
-            }
-            background: radial-gradient(
-                56.53% 37.19% at 58.04% 48.89%,
-                #36cfff 0%,
-                #ebc1f2 52.6%,
-                #f6edff 96.35%
-            );
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding-left: 5rem;
-            @include respond(tab-port) {
-                padding: 0 15px;
-            }
+      &--name {
+        color: $text-color-primary;
+        padding-bottom: 0.5rem;
+      }
+      &--description {
+        color: $text-color-secondary;
+      }
+      &--image {
+        margin-right: 3rem;
+        padding: 0.2rem 0.4rem;
+      }
+      &--grid {
+        align-self: center;
+      }
+    }
+  }
 
-            & h2 {
-                @include yesevaFont;
-            }
-        }
-
-        &--gradient {
-            z-index: -1;
-            overflow: hidden;
-            &--1 {
-                @include respond(tab-port) {
-                    display: none;
-                }
-                position: absolute;
-                width: 20rem;
-                height: 25rem;
-                left: 5rem;
-                top: 10rem;
-
-                background: radial-gradient(
-                    63.57% 81.24% at 29.44% -4.85%,
-                    rgba(85, 245, 255, 0.75) 0%,
-                    rgba(253, 156, 208, 0) 96.17%
-                );
-                filter: blur(100px);
-                transform: rotate(-154.6deg);
-            }
-            &--2 {
-                @include respond(tab-port) {
-                    display: none;
-                }
-                position: absolute;
-                width: 20rem;
-                height: 25rem;
-                right: 5rem;
-                top: -10rem;
-
-                background: radial-gradient(
-                    40.53% 57.61% at 61.7% 18.78%,
-                    rgba(201, 85, 255, 0.75) 0%,
-                    rgba(253, 226, 156, 0) 96.17%
-                );
-                filter: blur(100px);
-            }
-        }
-
-        &--logo {
-            @include displayFlexCenter;
-            position: relative;
-            & svg {
-                @include centerAbsolute;
-                z-index: 1;
-                width: 100%;
-            }
-        }
+  &__stats {
+    @include displayFlexCenter;
+    padding-top: -5rem;
+    @include respond(tab-port) {
+      padding-top: 0rem;
     }
 
-    &__features {
-        @include displayFlexCenter;
-        padding-top: 12rem;
+    &--title {
+      @include yesevaFont;
+      color: $text-color-primary;
+      text-align: center;
+      width: 100%;
+      padding-bottom: 5rem;
+    }
+
+    &--itembox {
+      padding: 2rem 0;
+    }
+
+    &__box {
+      padding: 3rem 0;
+      text-align: center;
+
+      &--name {
+        padding-top: 2rem;
+        color: $text-color-secondary;
+      }
+
+      &--stats {
+        color: $text-color-primary;
+        font-size: 5rem;
+      }
+    }
+  }
+
+  &__faq {
+    padding-top: 5rem;
+    &__accordion {
+      @include displayFlexCenter;
+    }
+
+    &__accordionitem {
+      &--root {
+        padding: 0 4rem;
+        background-color: $theme-color-secondary !important;
+        width: 80%;
+        max-width: 1200px;
         @include respond(tab-port) {
-            padding: 12rem 1rem;
+          max-width: 100%;
         }
-
-        &__logogrid {
-            @include respond(tab-port) {
-                display: none;
-            }
-            & svg {
-                z-index: 1;
-                width: 100%;
-                position: relative;
-                top: 10%;
-            }
-        }
-        &__title {
-            color: $text-color-primary;
-            padding-bottom: 5rem;
-            text-align: center;
-            @include yesevaFont;
-        }
-        &__box {
-            display: flex;
-            padding: 1.5rem 2rem;
-
-            &--name {
-                color: $text-color-primary;
-                padding-bottom: 0.5rem;
-            }
-            &--description {
-                color: $text-color-secondary;
-            }
-            &--image {
-                margin-right: 3rem;
-                padding: 0.2rem 0.4rem;
-            }
-            &--grid {
-                align-self: center;
-            }
-        }
+      }
+      &--title {
+        font-size: 150% !important;
+        padding-right: 5rem;
+      }
+      &--firstdetail {
+        color: $text-color-secondary;
+        margin: auto !important;
+      }
+      &--fulldetail {
+        color: $text-color-secondary;
+      }
+      & svg {
+        color: $text-color-primary;
+      }
     }
-
-    &__stats {
-        @include displayFlexCenter;
-        padding-top: -5rem;
-        @include respond(tab-port) {
-            padding-top: 0rem;
-        }
-
-        &--title {
-            @include yesevaFont;
-            color: $text-color-primary;
-            text-align: center;
-            width: 100%;
-        }
-
-        &--itembox {
-            padding: 2rem 0;
-        }
-
-        &__box {
-            padding: 3rem 0;
-            text-align: center;
-
-            &--name {
-                padding-top: 2rem;
-                color: $text-color-secondary;
-            }
-
-            &--stats {
-                color: $text-color-primary;
-                font-size: 5rem;
-            }
-        }
-    }
-
-    &__faq {
-        &__accordion {
-            @include displayFlexCenter;
-            padding-top: 5rem;
-        }
-
-        &__accordionitem {
-            &--root {
-                padding: 0 4rem;
-                background-color: $theme-color-secondary !important;
-                width: 80%;
-                max-width: 1200px;
-                @include respond(tab-port) {
-                    max-width: 100%;
-                }
-            }
-            &--title {
-                font-size: 150% !important;
-                padding-right: 5rem;
-            }
-            &--firstdetail {
-                color: $text-color-secondary;
-                margin: auto !important;
-            }
-            &--fulldetail {
-                color: $text-color-secondary;
-            }
-            & svg {
-                color: $text-color-primary;
-            }
-        }
-    }
+  }
 }

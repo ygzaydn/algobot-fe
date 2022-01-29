@@ -1,65 +1,64 @@
 .header {
-    margin: auto;
+  margin: auto;
+  @include maxWidth;
+  @include respond(tab-port) {
+    padding: 2rem 0;
+  }
 
-    @include respond(tab-port) {
-        padding: 2rem 0;
+  &__logo {
+    cursor: pointer !important;
+    position: relative;
+
+    &--image {
+      @include centerAbsolute;
     }
-    @include maxWidth;
+  }
 
-    &__logo {
-        cursor: pointer !important;
-        position: relative;
+  &__menu {
+    justify-content: flex-end;
+    align-items: center;
 
-        &--image {
-            @include centerAbsolute;
-        }
+    &--item {
+      padding: 1rem 2rem;
+      transition: all 0.4s;
+      color: $text-color-secondary;
+      z-index: 5000;
+      cursor: pointer;
+      & strong {
+        color: $text-color-primary;
+      }
+      &:hover {
+        color: $text-color-primary;
+      }
+      &--mobile {
+        width: 100%;
+        text-align: center;
+      }
+      &--active {
+        color: $text-color-primary;
+      }
     }
 
-    &__menu {
+    &--mobile {
+      display: none;
+      @include respond(tab-port) {
+        display: flex;
         justify-content: flex-end;
         align-items: center;
-
-        &--item {
-            padding: 1rem 2rem;
-            transition: all 0.4s;
-            color: $text-color-secondary;
-            z-index: 5000;
-            cursor: pointer;
-            & strong {
-                color: $text-color-primary;
-            }
-            &:hover {
-                color: $text-color-primary;
-            }
-            &--mobile {
-                width: 100%;
-                text-align: center;
-            }
-            &--active {
-                color: $text-color-primary;
-            }
-        }
-
-        &--mobile {
-            display: none;
-            @include respond(tab-port) {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-            }
-            & svg {
-                fill: $text-color-primary;
-            }
-            &:not(&:last-child) {
-                border-bottom: 0.1px solid white;
-            }
-        }
-        &--desktop {
-            display: flex;
-            justify-content: center;
-            @include respond(tab-port) {
-                display: none;
-            }
-        }
+      }
+      & svg {
+        fill: $text-color-primary;
+      }
+      &:not(&:last-child) {
+        border-bottom: 0.1px solid white;
+      }
     }
+    &--desktop {
+      display: flex;
+      justify-content: center;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
 }
