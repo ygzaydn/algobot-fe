@@ -91,20 +91,22 @@
 
   &__features {
     @include displayFlexCenter;
-    padding-top: 12rem;
+    padding-top: 20rem;
+    padding-bottom: 5rem;
+
     @include respond(tab-port) {
       padding: 12rem 1rem;
     }
 
     &__logogrid {
+      @include displayFlexCenter;
+      height: 100%;
       @include respond(tab-port) {
         display: none;
       }
+
       & svg {
-        z-index: 1;
-        width: 100%;
-        position: relative;
-        top: 10%;
+        @include displayFlexCenter;
       }
     }
     &__title {
@@ -146,7 +148,7 @@
       color: $text-color-primary;
       text-align: center;
       width: 100%;
-      padding-bottom: 5rem;
+      padding: 5rem 0;
     }
 
     &--itembox {
@@ -170,7 +172,6 @@
   }
 
   &__faq {
-    padding-top: 5rem;
     &__accordion {
       @include displayFlexCenter;
     }

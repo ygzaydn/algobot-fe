@@ -4,6 +4,7 @@ import Header from "./utils/header/header";
 import Homepage from "./pages/homepage/homepage";
 import Footer from "./utils/footer/footer";
 import SigninPage from "./pages/signin/signin";
+import ResetPassword from "./pages/resetPassword/resetPassword";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route path="/signin" element={<SigninPage />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
       </Routes>
       <Footer />
     </BrowserRouter>

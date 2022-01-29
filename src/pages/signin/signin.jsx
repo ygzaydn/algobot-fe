@@ -6,32 +6,23 @@ import Form from "../../utils/form/form";
 
 import "../../style/main.scss";
 
+import { signInText } from "../../constants";
+
 import { connect } from "react-redux";
 import { ReactComponent as SigninPageLogo } from "../../assets/illustrations/signinpage-logo.svg";
 
 const Signin = ({ language }) => {
   return (
     <Grid container className="signin">
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} className="signin__formgrid">
         <Form
-          options={[
-            { state: 0, text: "Sign in" },
-            { state: 1, text: "Sign Up" },
-          ]}
-          fields={[
-            {
-              name: "Your email address",
-            },
-            { name: "Password" },
-          ]}
-          sendButton={{
-            text: "Sign in",
-            clickFunction: () => console.log("asd"),
-          }}
-          additionalText={{ status: true, text: "Forgot your password?" }}
+          options={signInText[language].titleText}
+          fields={signInText[language].fields}
+          sendButton={signInText[language].buttonText}
+          additionalText={signInText[language].additionalText}
         />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} className="signin__icongrid">
         <SigninPageLogo />
       </Grid>
     </Grid>

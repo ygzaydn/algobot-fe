@@ -2,6 +2,13 @@
   @include displayFlexCenter;
   padding: 4rem 6rem;
   min-height: 600px;
+  @include respond(tab-port) {
+    min-height: 450px;
+  }
+  background-color: black;
+  border-radius: 50px;
+  box-shadow: 0.2px 0.2px 6px $text-color-secondary,
+    -0.2px -0.2px 6px $text-color-secondary;
   &__titlegrid {
     @include displayFlexCenter;
   }
@@ -23,6 +30,7 @@
     }
     &--active {
       background: $theme-color-primary !important;
+      cursor: default !important;
     }
   }
   &__fielditem {
