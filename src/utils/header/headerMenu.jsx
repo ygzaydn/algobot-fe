@@ -10,6 +10,7 @@ import HeaderMenuItem from "./headerMenuItem";
 import { headerText } from "../../constants";
 
 import { connect } from "react-redux";
+import { isAuth, language } from "../../redux/selectors";
 
 const HeaderMenu = ({ language, auth }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -66,13 +67,21 @@ const HeaderMenu = ({ language, auth }) => {
             size="mobile"
           />
         </MenuItem>
-        {!auth && (
+        {!auth ? (
           <MenuItem onClick={handleClose} className="header__menu--mobile">
             <HeaderMenuItem
               text={headerText[language].menuItem3}
               size="mobile"
               clickFunc={() => navigate("/signin")}
-            />{" "}
+            />
+          </MenuItem>
+        ) : (
+          <MenuItem onClick={handleClose} className="header__menu--mobile">
+            <HeaderMenuItem
+              text={headerText[language].menuItem4}
+              size="mobile"
+              clickFunc={() => navigate("/dashboard")}
+            />
           </MenuItem>
         )}
       </Menu>
@@ -81,8 +90,8 @@ const HeaderMenu = ({ language, auth }) => {
 };
 
 const mapStateToProps = (state) => ({
-  language: state.lang,
-  auth: Object.keys(state.user).length > 0,
+  language: language(state),
+  auth: isAuth(state),
 });
 
 export default connect(mapStateToProps, null)(HeaderMenu);

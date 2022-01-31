@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Grid } from "@mui/material";
 
@@ -9,14 +9,18 @@ import "../../style/main.scss";
 
 import { signInText } from "../../constants";
 import { ActionTypes } from "../../redux/actionTypes";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { ReactComponent as SigninPageLogo } from "../../assets/illustrations/signinpage-logo.svg";
+import { isAuth, language } from "../../redux/selectors";
 
 const Signin = ({ language, loginRequest, auth }) => {
   const login = (info) => {
     loginRequest(info);
+  };
+  const navigate = useNavigate();
+  useEffect(() => {
     if (auth) {
       Swal.fire({
         position: "center",
@@ -31,8 +35,9 @@ const Signin = ({ language, loginRequest, auth }) => {
         timer: 1500,
         zIndex: "1000",
       });
+      navigate("/dashboard");
     }
-  };
+  }, [auth, language, navigate]);
 
   const functions = [login];
   return (
@@ -55,8 +60,8 @@ const Signin = ({ language, loginRequest, auth }) => {
 };
 
 const mapStateToProps = (state) => ({
-  language: state.lang,
-  auth: Object.keys(state.user).length > 0,
+  language: language(state),
+  auth: isAuth(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   loginRequest: (info) =>

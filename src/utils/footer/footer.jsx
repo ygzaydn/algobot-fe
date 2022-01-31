@@ -3,6 +3,7 @@ import React from "react";
 import { Typography, Grid } from "@mui/material";
 import { footerText } from "../../constants";
 import { connect } from "react-redux";
+import { language } from "../../redux/selectors";
 
 const Footer = ({ language }) => {
   return (
@@ -33,6 +34,6 @@ const Footer = ({ language }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ language: state.lang });
+const mapStateToProps = (state) => ({ language: language(state) });
 
 export default connect(mapStateToProps, null)(Footer);

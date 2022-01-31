@@ -1,0 +1,30 @@
+.dashboardpage {
+  min-height: 80vh;
+  padding: 2rem 0rem;
+  max-width: 1600px;
+  margin: auto;
+  @include respond(tab-port) {
+    padding: 0rem 2rem;
+  }
+
+  &__maingrid {
+    padding: 1rem 2rem;
+    &--a {
+      max-height: 60%;
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+    &--b {
+      max-height: 60%;
+      padding: 0 1rem 0 2rem;
+      @include respond(tab-port) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    &--c {
+      height: 60%;
+    }
+  }
+}

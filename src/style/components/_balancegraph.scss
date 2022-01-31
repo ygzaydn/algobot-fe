@@ -1,0 +1,19 @@
+.balancegraph {
+  border-radius: 5px;
+  padding: 2rem 2rem 0 2rem;
+
+  background: transparent;
+  border: 0.1px solid lightgray;
+  height: 100%;
+  & canvas {
+    max-height: 150px !important;
+  }
+  &__title {
+    @include respond(tab-port) {
+      padding-bottom: 2rem;
+    }
+    & h6 {
+      color: $text-color-primary;
+    }
+  }
+}

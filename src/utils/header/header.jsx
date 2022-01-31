@@ -10,6 +10,7 @@ import HeaderMenu from "./headerMenu";
 import HeaderMenuItem from "./headerMenuItem";
 import HeaderLanguageButton from "./headerLanguageButton";
 import LoggedUserIcon from "../loggedUserIcon/loggedUserIcon";
+import { isAuth, language } from "../../redux/selectors";
 
 const Header = ({ language, auth }) => {
   const navigate = useNavigate();
@@ -29,7 +30,6 @@ const Header = ({ language, auth }) => {
         </Grid>
         <Grid item xs={8} className="header__menu--desktop">
           <HeaderMenuItem
-            status="active"
             size="desktop"
             text={headerText[language].menuItem1}
             clickFunc={() => navigate("/")}
@@ -40,6 +40,13 @@ const Header = ({ language, auth }) => {
             clickFunc={() => navigate("/#faq")}
           />
           <HeaderLanguageButton />
+          {auth && (
+            <HeaderMenuItem
+              size="desktop"
+              text={headerText[language].menuItem4}
+              clickFunc={() => navigate("/dashboard")}
+            />
+          )}
           {!auth ? (
             <HeaderMenuItem
               size="desktop"
@@ -65,8 +72,8 @@ const Header = ({ language, auth }) => {
 };
 
 const mapStateToProps = (state) => ({
-  language: state.lang,
-  auth: Object.keys(state.user).length > 0,
+  language: language(state),
+  auth: isAuth(state),
 });
 
 export default connect(mapStateToProps, null)(Header);

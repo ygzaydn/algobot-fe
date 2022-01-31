@@ -11,6 +11,7 @@ import { Navigate } from "react-router";
 
 import { connect } from "react-redux";
 import { ReactComponent as SigninPageLogo } from "../../assets/illustrations/signinpage-logo.svg";
+import { isAuth, language } from "../../redux/selectors";
 
 const ResetPassword = ({ language, auth }) => {
   return (
@@ -31,8 +32,8 @@ const ResetPassword = ({ language, auth }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  language: state.lang,
-  auth: Object.keys(state.user).length > 0,
+  language: language(state),
+  auth: isAuth(state),
 });
 
 export default connect(mapStateToProps, null)(ResetPassword);

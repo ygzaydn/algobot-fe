@@ -5,8 +5,12 @@
 @import "./components/header";
 @import "./components/footer";
 @import "./components/form";
+@import "./components/dashboardlist";
+@import "./components/accountbalance";
+@import "./components/balancegraph";
 
 @import "./pages/homepage";
 @import "./pages/accountpage";
 @import "./pages/signin";
 @import "./pages/resetpassword";
+@import "./pages/dashboardpage";

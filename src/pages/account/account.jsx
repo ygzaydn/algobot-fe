@@ -10,6 +10,8 @@ import { ReactComponent as AccountPageLogo } from "../../assets/illustrations/ac
 import { ActionTypes } from "../../redux/actionTypes";
 import { Navigate } from "react-router-dom";
 
+import { language, isAuth } from "../../redux/selectors";
+
 const ResetPassword = ({ language, logout, auth }) => {
   const logoutFunc = () => {
     logout();
@@ -66,8 +68,8 @@ const ResetPassword = ({ language, logout, auth }) => {
 };
 
 const mapStateToProps = (state) => ({
-  language: state.lang,
-  auth: Object.keys(state.user).length > 0,
+  language: language(state),
+  auth: isAuth(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch({ type: ActionTypes.LOGOUT_USER }),

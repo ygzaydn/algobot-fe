@@ -1,0 +1,33 @@
+.accountbalance {
+  border-radius: 5px;
+  padding: 2rem 2rem;
+  background: transparent;
+  border: 0.1px solid lightgray;
+  height: 100%;
+  &__title {
+    & h6 {
+      color: $text-color-primary;
+    }
+    padding-bottom: 2rem;
+  }
+  &__total {
+    padding-bottom: 1rem;
+    &--title {
+      color: $text-color-secondary;
+    }
+    &--value {
+      color: $text-color-primary;
+    }
+  }
+  &__profit {
+    &--title {
+      color: $text-color-secondary;
+    }
+    &--pos {
+      color: lightgreen;
+    }
+    &--neg {
+      color: lightcoral;
+    }
+  }
+}
