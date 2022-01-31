@@ -9,8 +9,9 @@ import { headerText } from "../../constants";
 import HeaderMenu from "./headerMenu";
 import HeaderMenuItem from "./headerMenuItem";
 import HeaderLanguageButton from "./headerLanguageButton";
+import LoggedUserIcon from "../loggedUserIcon/loggedUserIcon";
 
-const Header = ({ language }) => {
+const Header = ({ language, auth }) => {
   const navigate = useNavigate();
   const header = useRef("");
 
@@ -39,17 +40,21 @@ const Header = ({ language }) => {
             clickFunc={() => navigate("/#faq")}
           />
           <HeaderLanguageButton />
-
-          <HeaderMenuItem
-            size="desktop"
-            text={headerText[language].menuItem3}
-            clickFunc={() => navigate("/signin")}
-          />
+          {!auth ? (
+            <HeaderMenuItem
+              size="desktop"
+              text={headerText[language].menuItem3}
+              clickFunc={() => navigate("/signin")}
+            />
+          ) : (
+            <LoggedUserIcon />
+          )}
         </Grid>
         <Grid item xs={8} className="header__menu--mobile">
           <Grid item xs={4} />
-          <Grid item xs={7} justify="center" display="flex">
+          <Grid item xs={7} justifyContent="center" display="flex">
             <HeaderLanguageButton />
+            {auth && <LoggedUserIcon />}
             <HeaderMenu />
           </Grid>
           <Grid item xs={1} />
@@ -59,6 +64,9 @@ const Header = ({ language }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ language: state.lang });
+const mapStateToProps = (state) => ({
+  language: state.lang,
+  auth: Object.keys(state.user).length > 0,
+});
 
 export default connect(mapStateToProps, null)(Header);

@@ -1,12 +1,16 @@
 import { ActionTypes } from "./actionTypes";
 
-export const reducer = (state = { lang: "en" }, action) => {
-    switch (action.type) {
-        case ActionTypes.SWITCH_LANGUAGE_EN:
-            return { ...state, lang: "en" };
-        case ActionTypes.SWITCH_LANGUAGE_TR:
-            return { ...state, lang: "tr" };
-        default:
-            return state;
-    }
+export const reducer = (state = { lang: "en", user: {} }, action) => {
+  switch (action.type) {
+    case ActionTypes.SWITCH_LANGUAGE_EN:
+      return { ...state, lang: "en" };
+    case ActionTypes.SWITCH_LANGUAGE_TR:
+      return { ...state, lang: "tr" };
+    case ActionTypes.LOGIN_USER:
+      return { ...state, user: { email: action.payload.email } };
+    case ActionTypes.LOGOUT_USER:
+      return { ...state, user: {} };
+    default:
+      return state;
+  }
 };

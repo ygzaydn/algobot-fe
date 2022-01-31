@@ -3,7 +3,13 @@ import React, { useState } from "react";
 import { Grid, Typography, Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 
-const Form = ({ fields, sendButton, additionalText, options }) => {
+const Form = ({
+  fields,
+  sendButton,
+  additionalText,
+  options,
+  clickFunction,
+}) => {
   const [optionState, setOptionState] = useState(0);
   const [info, setInfo] = useState({});
   const navigate = useNavigate();
@@ -57,7 +63,7 @@ const Form = ({ fields, sendButton, additionalText, options }) => {
           variant="contained"
           color="primary"
           className="form__sendbutton"
-          onClick={() => sendButton.clickFunction()}
+          onClick={() => clickFunction[optionState](info)}
         >
           {sendButton[optionState]}
         </Button>

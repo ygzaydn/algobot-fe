@@ -45,6 +45,8 @@ export const signInText = {
         status: false,
       },
     },
+
+    loginSuccessMessage: "Login success",
   },
   tr: {
     titleText: {
@@ -96,5 +98,6 @@ export const signInText = {
         status: false,
       },
     },
+    loginSuccessMessage: "Giriş başarılı",
   },
 };
