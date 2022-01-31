@@ -17,19 +17,21 @@ import { ReactComponent as SigninPageLogo } from "../../assets/illustrations/sig
 const Signin = ({ language, loginRequest, auth }) => {
   const login = (info) => {
     loginRequest(info);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      width: 600,
-      padding: "3em",
-      color: `green`,
-      background: "black",
-      title: `${signInText[language].loginSuccessMessage}`,
-      showConfirmButton: false,
-      borderRadius: "20px",
-      timer: 1500,
-      zIndex: "1000",
-    });
+    if (auth) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        width: 600,
+        padding: "3em",
+        color: `green`,
+        background: "black",
+        title: `${signInText[language].loginSuccessMessage}`,
+        showConfirmButton: false,
+        borderRadius: "20px",
+        timer: 1500,
+        zIndex: "1000",
+      });
+    }
   };
 
   const functions = [login];
