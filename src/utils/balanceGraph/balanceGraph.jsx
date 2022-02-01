@@ -3,10 +3,17 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { Grid, Typography } from "@mui/material";
 
+import { connect } from "react-redux";
+import { language } from "../../redux/selectors";
+
+import { dashboardText, testPortfolio } from "../../constants";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const label = testPortfolio.map((el) => el.coin);
+
 export const data = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: [...label],
 
   options: {
     plugins: {
@@ -17,7 +24,7 @@ export const data = {
   },
   datasets: [
     {
-      data: [12, 19, 3, 5, 2, 3],
+      data: { ...testPortfolio.map((el) => parseFloat(el.value)) },
       backgroundColor: [
         "rgba(255, 99, 132, 1)",
         "rgba(54, 162, 235, 1)",
@@ -39,7 +46,7 @@ export const data = {
   ],
 };
 
-const BalanceGraph = () => {
+const BalanceGraph = ({ language }) => {
   const options = {
     plugins: {
       legend: {
@@ -51,11 +58,17 @@ const BalanceGraph = () => {
   return (
     <Grid container className="balancegraph">
       <Grid item xs={12} className="balancegraph__title">
-        <Typography variant="h6">Balance allocation</Typography>
+        <Typography variant="h6">
+          {dashboardText[language].balanceAllocationTitle}
+        </Typography>
       </Grid>
       <Doughnut data={data} options={options} />;
     </Grid>
   );
 };
 
-export default BalanceGraph;
+const mapStateToProps = (state) => ({
+  language: language(state),
+});
+
+export default connect(mapStateToProps, null)(BalanceGraph);

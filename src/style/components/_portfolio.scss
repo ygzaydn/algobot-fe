@@ -1,0 +1,26 @@
+.portfolio {
+  &__title {
+    color: $text-color-primary;
+    padding: 1rem 2rem;
+  }
+  &__header {
+    & tr {
+      & th {
+        background-color: $theme-color-primary;
+        color: $text-color-primary;
+        border: none;
+        @include yesevaFont;
+      }
+    }
+  }
+  &__item {
+    & th,
+    td {
+      border: none;
+      color: $text-color-primary;
+    }
+    & td {
+      color: $text-color-secondary;
+    }
+  }
+}

@@ -10,8 +10,11 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ApiOutlinedIcon from "@mui/icons-material/ApiOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
+import { dashboardMenuText } from "../../constants";
+import { language } from "../../redux/selectors";
+import { connect } from "react-redux";
 
-const DashboardList = () => {
+const DashboardList = ({ language }) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -28,7 +31,10 @@ const DashboardList = () => {
         <ListItemIcon className="dashboardpage__list--icon">
           <AccountBalanceWalletOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Wallet" className="dashboardpage__list--text" />
+        <ListItemText
+          primary={dashboardMenuText[language].wallet}
+          className="dashboardpage__list--text"
+        />
         {open ? (
           <ExpandLess className="dashboardpage__list--icon" />
         ) : (
@@ -40,13 +46,13 @@ const DashboardList = () => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 8 }}>
             <ListItemText
-              primary="Overview"
+              primary={dashboardMenuText[language].overview}
               className="dashboardpage__list--text"
             />
           </ListItemButton>
           <ListItemButton sx={{ pl: 8 }}>
             <ListItemText
-              primary="Deposit"
+              primary={dashboardMenuText[language].deposit}
               className="dashboardpage__list--text"
             />
           </ListItemButton>
@@ -57,17 +63,27 @@ const DashboardList = () => {
         <ListItemIcon className="dashboardpage__list--icon">
           <ApiOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Trade" className="dashboardpage__list--text" />
+        <ListItemText
+          primary={dashboardMenuText[language].trade}
+          className="dashboardpage__list--text"
+        />
       </ListItemButton>
 
       <ListItemButton>
         <ListItemIcon className="dashboardpage__list--icon">
           <BoltOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Earn" className="dashboardpage__list--text" />
+        <ListItemText
+          primary={dashboardMenuText[language].earn}
+          className="dashboardpage__list--text"
+        />
       </ListItemButton>
     </List>
   );
 };
 
-export default DashboardList;
+const mapStateToProps = (state) => ({
+  language: language(state),
+});
+
+export default connect(mapStateToProps, null)(DashboardList);
