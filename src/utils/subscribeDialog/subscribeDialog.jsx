@@ -12,12 +12,47 @@ import { subscribeDialogText } from "../../constants";
 import { language } from "../../redux/selectors";
 import { connect } from "react-redux";
 import { TextField } from "@mui/material";
+import { ActionTypes } from "../../redux/actionTypes";
+import Swal from "sweetalert2";
 
-const FormDialog = ({ open, setOpen, language }) => {
+const FormDialog = ({ open, setOpen, language, activateAccount }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const positiveClose = () => {
+    let date = new Date();
+    let day = date.getDay();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+
+    if (month === 12) {
+      year += 1;
+      month = 1;
+    } else {
+      month += 1;
+    }
+    const overallDate = `${day}/${month}/${year}`;
+    activateAccount(overallDate);
+    setOpen(false);
+    Swal.fire({
+      position: "center",
+      width: 600,
+      padding: "3em",
+      color: `#f6edff`,
+      background: "black",
+      text: `${subscribeDialogText[language].popupText}`,
+      title: `${subscribeDialogText[language].popupTitle}`,
+      customClass: {
+        closeButton: {
+          color: "red",
+        },
+      },
+    });
+  };
+
   const [wallet, setWallet] = React.useState("");
+
   return (
     <Dialog
       open={open}
@@ -47,7 +82,11 @@ const FormDialog = ({ open, setOpen, language }) => {
         <Button variant="contained" color="primary" onClick={handleClose}>
           {subscribeDialogText[language].cancelButtonText}
         </Button>
-        <Button variant="contained" color="primary" onClick={handleClose}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => positiveClose()}
+        >
           {subscribeDialogText[language].subscribeButtonText}
         </Button>
       </DialogActions>
@@ -57,4 +96,9 @@ const FormDialog = ({ open, setOpen, language }) => {
 
 const mapStateToProps = (state) => ({ language: language(state) });
 
-export default connect(mapStateToProps, null)(FormDialog);
+const mapDispatchToProps = (dispatch) => ({
+  activateAccount: (date) =>
+    dispatch({ type: ActionTypes.ACTIVATE_USER, payload: date }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormDialog);

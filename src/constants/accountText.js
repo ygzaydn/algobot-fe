@@ -24,6 +24,6 @@ export const accountText = {
       active: "Aktif",
       passive: "Pasif",
     },
-    subscribeButtonText: "Kayıt ol",
+    subscribeButtonText: "Abone ol",
   },
 };

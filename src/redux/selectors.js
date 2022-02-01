@@ -3,3 +3,4 @@ export const isAuth = (state) =>
 
 export const language = (state) => state.lang;
 export const user = (state) => state.user;
+export const subscribed = (state) => state.user.subscribed;

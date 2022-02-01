@@ -11,7 +11,7 @@ import { ActionTypes } from "../../redux/actionTypes";
 import { Navigate } from "react-router-dom";
 
 import { language, isAuth, user } from "../../redux/selectors";
-import FormDialog from "../../utils/subscribeDialog/subscribeDialog";
+import SubcribeDialog from "../../utils/subscribeDialog/subscribeDialog";
 
 const ResetPassword = ({ language, logout, auth, user }) => {
   const [open, setOpen] = useState(false);
@@ -34,7 +34,7 @@ const ResetPassword = ({ language, logout, auth, user }) => {
 
   return (
     <Grid container className="accountpage">
-      <FormDialog open={open} setOpen={setOpen} />
+      <SubcribeDialog open={open} setOpen={setOpen} />
       {!auth && <Navigate to="/" />}
       <Grid item xs={12} md={6} className="accountpage__titlegrid">
         <Grid item xs={12}>
@@ -64,7 +64,7 @@ const ResetPassword = ({ language, logout, auth, user }) => {
           </Typography>
           <Typography variant="subtitle2" className="accountpage__infotext">
             <span>{accountText[language].infoText3}</span>
-            {user.subscribed ? "Date" : "--------------"}
+            {user.subscribed ? `${user.expireDate}` : "--------------"}
           </Typography>
         </Grid>
         <Grid item xs={12} className="accountpage__buttongrid">

@@ -14,6 +14,9 @@ export const subscribeDialogText = {
       "Click continue when you are done, we will check the transaction and activate your account.",
     subscribeButtonText: "Continue",
     cancelButtonText: "Cancel",
+    popupTitle: "Thanks for your interest!",
+    popupText:
+      "We will check your transaction now, please wait until we approve your subscription.",
   },
   tr: {
     title: "ArgBot'a kayıt ol",
@@ -33,5 +36,8 @@ export const subscribeDialogText = {
       "Ödeme işlemini tamamladıktan sonra, sağ alttaki Devam tuşuna basın. Ödemeniz en kısa sürede kontrol edilecek ve hesabınız aktif edilecektir.",
     subscribeButtonText: "Devam",
     cancelButtonText: "İptal",
+    popupTitle: "İlginiz için teşşekkürler!",
+    popupText:
+      "Ödemenizi kontrol edeceğiz, lütfen ödemeniz onaylanana kadar bekleyin.",
   },
 };

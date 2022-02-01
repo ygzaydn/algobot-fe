@@ -1,0 +1,17 @@
+.subexpired {
+  &__grid {
+    padding: 2rem 4rem;
+    height: 100%;
+    @include displayFlexCenter;
+    flex-direction: column !important;
+  }
+  &__text {
+    color: $text-color-primary;
+    @include yesevaFont;
+    padding: 2rem;
+    text-align: center;
+  }
+  &__button {
+    margin: 1rem !important;
+  }
+}

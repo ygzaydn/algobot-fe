@@ -31,9 +31,7 @@ const Signin = ({ language, loginRequest, auth }) => {
         background: "black",
         title: `${signInText[language].loginSuccessMessage}`,
         showConfirmButton: false,
-        borderRadius: "20px",
         timer: 1500,
-        zIndex: "1000",
       });
       navigate("/dashboard");
     }

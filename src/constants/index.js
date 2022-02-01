@@ -5,6 +5,7 @@ import { signInText } from "./signInText";
 import { resetPasswordText } from "./resetPasswordText";
 import { accountText } from "./accountText";
 import { subscribeDialogText } from "./subscribeDialogText";
+import { subExpiredText } from "./subExpiredText";
 
 export {
   homepageText,
@@ -14,4 +15,5 @@ export {
   resetPasswordText,
   accountText,
   subscribeDialogText,
+  subExpiredText,
 };
