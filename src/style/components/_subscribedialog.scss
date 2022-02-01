@@ -1,0 +1,32 @@
+.subscribe {
+  &__container {
+    border: 0.2px solid lightgray !important;
+    border-radius: 5px;
+    min-height: 60%;
+    padding: 1rem 2rem;
+  }
+  &__title {
+    text-align: center !important;
+    font-size: 4rem !important;
+    padding-bottom: 1rem;
+  }
+  &__dialogcontent {
+    padding: 2rem 0;
+  }
+  &__text {
+    font-size: 1rem !important;
+    padding-bottom: 2rem;
+  }
+  &__textfield {
+    width: 90%;
+    margin: 1rem !important;
+
+    border-bottom: 0.1px solid $theme-color-primary !important;
+  }
+  &__actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2rem 4rem !important;
+  }
+}

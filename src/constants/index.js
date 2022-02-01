@@ -4,6 +4,7 @@ import { footerText } from "./footerText";
 import { signInText } from "./signInText";
 import { resetPasswordText } from "./resetPasswordText";
 import { accountText } from "./accountText";
+import { subscribeDialogText } from "./subscribeDialogText";
 
 export {
   homepageText,
@@ -12,4 +13,5 @@ export {
   signInText,
   resetPasswordText,
   accountText,
+  subscribeDialogText,
 };

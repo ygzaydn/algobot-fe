@@ -67,7 +67,11 @@ const mapDispatchToProps = (dispatch) => ({
   loginRequest: (info) =>
     dispatch({
       type: ActionTypes.LOGIN_USER,
-      payload: { email: info.email, password: info.password },
+      payload: {
+        email: info.email,
+        password: info.password,
+        subscribed: false,
+      },
     }),
 });
 

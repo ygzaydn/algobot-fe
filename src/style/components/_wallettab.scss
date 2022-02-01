@@ -1,0 +1,26 @@
+.wallettab {
+  margin: 1rem 3rem;
+  @include respond(tab-port) {
+    margin: 0;
+  }
+
+  &__tabpanel {
+    color: $text-color-secondary;
+    @include respond(tab-port) {
+      padding: 1rem 0;
+    }
+    & div {
+      @include respond(tab-port) {
+        padding: 1rem 0;
+      }
+    }
+    & span {
+      display: block;
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 0.1px solid lightgray;
+      border-radius: 5px;
+      color: $text-color-primary;
+    }
+  }
+}

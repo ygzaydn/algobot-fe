@@ -16,7 +16,7 @@ const Dashboard = ({ language, auth }) => {
       <Grid item xs={12} sm={2} className="dashboardpage__list">
         <DashboardMenu />
       </Grid>
-      <Grid xs={12} sm={10} className="dashboardpage__maingrid">
+      <Grid item xs={12} sm={10} className="dashboardpage__maingrid">
         <Grid container style={{ height: "100%" }}>
           <Grid item xs={12} md={6} className="dashboardpage__maingrid--a">
             <AccountBalance value={1.029} profit={0.148} />

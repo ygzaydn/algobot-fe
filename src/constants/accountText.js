@@ -6,14 +6,24 @@ export const accountText = {
     infoText3: "Expire Date",
     buttonText: "Logout",
     logoutText: "Logout Successful",
+    accountStatus: {
+      active: "Active",
+      passive: "Passive",
+    },
+    subscribeButtonText: "Subscribe",
   },
 
   tr: {
-    title: "Account Info",
-    infoText1: "E-mail",
+    title: "Hesap Bilgileri",
+    infoText1: "Email",
     infoText2: "Hesap Durumu",
     infoText3: "Geçerlilik Tarihi",
     buttonText: "Çıkış Yap",
     logoutText: "Çıkış Başarılı",
+    accountStatus: {
+      active: "Aktif",
+      passive: "Pasif",
+    },
+    subscribeButtonText: "Kayıt ol",
   },
 };

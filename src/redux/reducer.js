@@ -7,7 +7,7 @@ export const reducer = (state = { lang: "en", user: {} }, action) => {
     case ActionTypes.SWITCH_LANGUAGE_TR:
       return { ...state, lang: "tr" };
     case ActionTypes.LOGIN_USER:
-      return { ...state, user: { email: action.payload.email } };
+      return { ...state, user: action.payload };
     case ActionTypes.LOGOUT_USER:
       return { ...state, user: {} };
     default:

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Grid, Typography, Button } from "@mui/material";
 
@@ -10,9 +10,12 @@ import { ReactComponent as AccountPageLogo } from "../../assets/illustrations/ac
 import { ActionTypes } from "../../redux/actionTypes";
 import { Navigate } from "react-router-dom";
 
-import { language, isAuth } from "../../redux/selectors";
+import { language, isAuth, user } from "../../redux/selectors";
+import FormDialog from "../../utils/subscribeDialog/subscribeDialog";
 
-const ResetPassword = ({ language, logout, auth }) => {
+const ResetPassword = ({ language, logout, auth, user }) => {
+  const [open, setOpen] = useState(false);
+
   const logoutFunc = () => {
     logout();
     Swal.fire({
@@ -31,6 +34,7 @@ const ResetPassword = ({ language, logout, auth }) => {
 
   return (
     <Grid container className="accountpage">
+      <FormDialog open={open} setOpen={setOpen} />
       {!auth && <Navigate to="/" />}
       <Grid item xs={12} md={6} className="accountpage__titlegrid">
         <Grid item xs={12}>
@@ -40,13 +44,27 @@ const ResetPassword = ({ language, logout, auth }) => {
         </Grid>
         <Grid item xs={12} className="accountpage__infogrid">
           <Typography variant="subtitle2" className="accountpage__infotext">
-            {accountText[language].infoText1}
+            <span>{accountText[language].infoText1}</span>
+            {user.email}
           </Typography>
           <Typography variant="subtitle2" className="accountpage__infotext">
-            {accountText[language].infoText2}
+            <span>{accountText[language].infoText2}</span>
+            {user.subscribed
+              ? accountText[language].accountStatus.active
+              : accountText[language].accountStatus.passive}
+            {!user.subscribed && (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => setOpen(true)}
+              >
+                {accountText[language].subscribeButtonText}
+              </Button>
+            )}
           </Typography>
           <Typography variant="subtitle2" className="accountpage__infotext">
-            {accountText[language].infoText3}
+            <span>{accountText[language].infoText3}</span>
+            {user.subscribed ? "Date" : "--------------"}
           </Typography>
         </Grid>
         <Grid item xs={12} className="accountpage__buttongrid">
@@ -70,6 +88,7 @@ const ResetPassword = ({ language, logout, auth }) => {
 const mapStateToProps = (state) => ({
   language: language(state),
   auth: isAuth(state),
+  user: user(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch({ type: ActionTypes.LOGOUT_USER }),
