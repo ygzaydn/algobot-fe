@@ -80,7 +80,7 @@ const HeaderMenu = ({ language, auth }) => {
             <HeaderMenuItem
               text={headerText[language].menuItem4}
               size="mobile"
-              clickFunc={() => navigate("/dashboard")}
+              clickFunc={() => navigate("/dashboard/account")}
             />
           </MenuItem>
         )}

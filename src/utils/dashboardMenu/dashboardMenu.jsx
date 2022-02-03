@@ -13,14 +13,15 @@ import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import { dashboardMenuText } from "../../constants";
 import { language } from "../../redux/selectors";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const DashboardList = ({ language }) => {
+const DashboardList = ({ language, pageState, setPageState }) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
     setOpen(!open);
   };
-
+  const navigate = useNavigate();
   return (
     <List
       component="nav"
@@ -32,7 +33,7 @@ const DashboardList = ({ language }) => {
           <AccountBalanceWalletOutlinedIcon />
         </ListItemIcon>
         <ListItemText
-          primary={dashboardMenuText[language].wallet}
+          primary={dashboardMenuText[language].wallet.text}
           className="dashboardpage__list--text"
         />
         {open ? (
@@ -46,14 +47,30 @@ const DashboardList = ({ language }) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 8 }}>
             <ListItemText
-              primary={dashboardMenuText[language].overview}
-              className="dashboardpage__list--text"
+              primary={dashboardMenuText[language].account.text}
+              onClick={() =>
+                navigate(
+                  `/dashboard/${dashboardMenuText[language].account.url}`
+                )
+              }
+              className={`${
+                pageState === dashboardMenuText[language].account.url
+                  ? "dashboardpage__list--text dashboardpage__list--text--active"
+                  : "dashboardpage__list--text"
+              } `}
             />
           </ListItemButton>
           <ListItemButton sx={{ pl: 8 }}>
             <ListItemText
-              primary={dashboardMenuText[language].deposit}
-              className="dashboardpage__list--text"
+              primary={dashboardMenuText[language].orders.text}
+              onClick={() =>
+                navigate(`/dashboard/${dashboardMenuText[language].orders.url}`)
+              }
+              className={`${
+                pageState === dashboardMenuText[language].orders.url
+                  ? "dashboardpage__list--text dashboardpage__list--text--active"
+                  : "dashboardpage__list--text"
+              } `}
             />
           </ListItemButton>
         </List>
@@ -64,8 +81,15 @@ const DashboardList = ({ language }) => {
           <ApiOutlinedIcon />
         </ListItemIcon>
         <ListItemText
-          primary={dashboardMenuText[language].trade}
-          className="dashboardpage__list--text"
+          primary={dashboardMenuText[language].charts.text}
+          onClick={() =>
+            navigate(`/dashboard/${dashboardMenuText[language].charts.url}`)
+          }
+          className={`${
+            pageState === dashboardMenuText[language].charts.url
+              ? "dashboardpage__list--text dashboardpage__list--text--active"
+              : "dashboardpage__list--text"
+          } `}
         />
       </ListItemButton>
 
@@ -74,8 +98,12 @@ const DashboardList = ({ language }) => {
           <BoltOutlinedIcon />
         </ListItemIcon>
         <ListItemText
-          primary={dashboardMenuText[language].earn}
-          className="dashboardpage__list--text"
+          primary={dashboardMenuText[language].bot.text}
+          className={`${
+            pageState === dashboardMenuText[language].bot.url
+              ? "dashboardpage__list--text dashboardpage__list--text--active"
+              : "dashboardpage__list--text"
+          } `}
         />
       </ListItemButton>
     </List>

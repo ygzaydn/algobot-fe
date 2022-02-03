@@ -9,7 +9,9 @@ import { subExpiredText } from "./subExpiredText";
 import { dashboardMenuText } from "./dashboardMenuText";
 import { dashboardText } from "./dashboardText";
 import { portfolioText } from "./portfolioText";
-import { testPortfolio } from "./testData";
+import { testPortfolio, orderInfo } from "./testData";
+import { orderInfoText } from "./orderInfoText";
+import { chartsInfoText } from "./chartsInfo";
 
 export {
   homepageText,
@@ -24,4 +26,7 @@ export {
   dashboardText,
   portfolioText,
   testPortfolio,
+  orderInfo,
+  orderInfoText,
+  chartsInfoText,
 };

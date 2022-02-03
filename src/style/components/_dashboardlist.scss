@@ -18,5 +18,8 @@
   &--text {
     color: $text-color-secondary;
     font-size: 1vw;
+    &--active {
+      color: $text-color-primary;
+    }
   }
 }

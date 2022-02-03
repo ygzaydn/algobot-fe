@@ -44,7 +44,7 @@ const Header = ({ language, auth }) => {
             <HeaderMenuItem
               size="desktop"
               text={headerText[language].menuItem4}
-              clickFunc={() => navigate("/dashboard")}
+              clickFunc={() => navigate("/dashboard/account")}
             />
           )}
           {!auth ? (

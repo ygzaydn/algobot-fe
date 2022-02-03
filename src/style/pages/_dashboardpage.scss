@@ -4,7 +4,7 @@
   max-width: 1600px;
   margin: auto;
   @include respond(tab-port) {
-    padding: 0rem 2rem;
+    padding: 0rem 1rem;
   }
 
   &__maingrid {

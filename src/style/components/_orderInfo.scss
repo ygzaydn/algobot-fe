@@ -1,0 +1,48 @@
+.orderInfo {
+  &__title {
+    color: $text-color-primary;
+    padding: 1rem 2rem;
+  }
+  &__header {
+    & tr {
+      & th {
+        background-color: $theme-color-primary;
+        color: $text-color-primary;
+        border: none;
+        @include yesevaFont;
+      }
+    }
+  }
+  &__item {
+    & th,
+    td {
+      border: none;
+      color: $text-color-primary;
+    }
+    & td {
+      color: $text-color-secondary;
+    }
+    &--active {
+      color: $text-color-primary !important;
+    }
+    &--passive {
+      color: $text-color-secondary !important;
+      text-decoration: line-through;
+    }
+    &--positive {
+      color: lightgreen !important;
+    }
+    &--negative {
+      color: red !important;
+    }
+    &--low {
+      color: yellow !important;
+    }
+    &--medium {
+      color: orange !important;
+    }
+    &--high {
+      color: red !important;
+    }
+  }
+}

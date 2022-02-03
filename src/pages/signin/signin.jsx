@@ -33,7 +33,7 @@ const Signin = ({ language, loginRequest, auth }) => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate("/dashboard");
+      navigate("/dashboard/account");
     }
   }, [auth, language, navigate]);
 
