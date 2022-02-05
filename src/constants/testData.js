@@ -13,7 +13,7 @@ export const orderInfo = [
     coin: "BTC",
     amount: "0.21",
     position: "open",
-    leverage: "22x",
+    leverage: "22",
     status: -3.2,
   },
   { coin: "ETH", amount: "0.03", position: "open", leverage: "1", status: 2 },
