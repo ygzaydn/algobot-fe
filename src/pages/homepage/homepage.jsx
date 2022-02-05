@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Grid, Typography } from "@mui/material";
 
@@ -15,8 +15,22 @@ import StatsItem from "../../utils/stats/statsItem";
 import YesevaTitle from "../../utils/yesevaTitle/yesevaTitle";
 import FaqAccordion from "../../utils/faqAccordion/faqAccordion";
 import { language } from "../../redux/selectors";
+import { TickerTape } from "react-tradingview-embed";
+import { useLocation } from "react-router";
 
 const Homepage = ({ language }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqGrid = document.getElementById("faq");
+      faqGrid.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [location]);
+
   return (
     <Grid container className="homepage">
       <Grid container className="homepage__container">
@@ -34,6 +48,43 @@ const Homepage = ({ language }) => {
             <div className="homepage__landing--gradient--1" />
             <div className="homepage__landing--gradient--2" />
           </Grid>
+        </Grid>
+        <Grid container className="homepage__tickertape">
+          <TickerTape
+            widgetProps={{
+              hideTopBar: false,
+              symbols: [
+                {
+                  proName: "BINANCE:BTCUSD",
+                  title: "Bitcoin",
+                },
+                {
+                  proName: "BINANCE:ETHUSD",
+                  title: "Ethereum",
+                },
+                {
+                  proName: "BINANCE:BNBUSD",
+                  title: "Binance Coin",
+                },
+                {
+                  proName: "BINANCE:ADAUSD",
+                  title: "Cardano",
+                },
+                {
+                  proName: "BINANCE:SOLUSD",
+                  title: "Solana",
+                },
+                {
+                  proName: "BINANCE:LUNAUSD",
+                  title: "Luna",
+                },
+                {
+                  proName: "BINANCE:DOTUSD",
+                  title: "Polkadot",
+                },
+              ],
+            }}
+          />
         </Grid>
         <Grid container className="homepage__features">
           <Grid item xs={0} sm={6} className="homepage__features__logogrid">

@@ -16,23 +16,24 @@ const Charts = ({ language }) => {
     <Grid item xs={12} className="dashboardpage__maingrid--c">
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h6" className="orderInfo__title">
+          <Typography variant="h6" className="charts__title">
             {chartsInfoText[language].title}
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className="charts__buttongrid">
           <TextField
             id="filled-basic"
             placeholder={chartsInfoText[language].textFieldPlaceholder}
             variant="outlined"
             color="primary"
-            className="subscribe__textfield"
+            className="charts__textfield"
             ref={ref}
           />
+
           <Button
             variant="contained"
             color="primary"
-            className="accountpage__button"
+            className="charts__button"
             onClick={() =>
               setSearchCoin(ref.current.firstChild.firstChild.value)
             }

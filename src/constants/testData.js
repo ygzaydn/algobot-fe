@@ -46,3 +46,11 @@ export const orderInfo = [
     status: 123.5,
   },
 ];
+
+export const botInfo = [
+  { botName: "ArgPump#1", profit: 2013.23, openPositions: 7 },
+  { botName: "ArgPump#2", profit: -23.123, openPositions: 2 },
+  { botName: "ArgPump#3", profit: 13.78, openPositions: 3 },
+  { botName: "ArgPump#4", profit: -221.2, openPositions: 4 },
+  { botName: "ArgPump#5", profit: 20.0, openPositions: 5 },
+];

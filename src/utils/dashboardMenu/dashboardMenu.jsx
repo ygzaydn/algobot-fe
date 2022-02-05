@@ -99,6 +99,9 @@ const DashboardList = ({ language, pageState, setPageState }) => {
         </ListItemIcon>
         <ListItemText
           primary={dashboardMenuText[language].bot.text}
+          onClick={() =>
+            navigate(`/dashboard/${dashboardMenuText[language].bot.url}`)
+          }
           className={`${
             pageState === dashboardMenuText[language].bot.url
               ? "dashboardpage__list--text dashboardpage__list--text--active"

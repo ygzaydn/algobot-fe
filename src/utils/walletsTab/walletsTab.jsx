@@ -84,7 +84,7 @@ const WalletTabs = ({ language }) => {
         dir={theme.direction}
       >
         {subscribeDialogText[language].itemOneContent}
-        <span>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</span>
+        <span>XXXXXXXXXXXXXXXXXXXXXXXX</span>
       </TabPanel>
       <TabPanel
         className="wallettab__tabpanel"
@@ -93,7 +93,7 @@ const WalletTabs = ({ language }) => {
         dir={theme.direction}
       >
         {subscribeDialogText[language].itemTwoContent}
-        <span>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</span>
+        <span>XXXXXXXXXXXXXXXXXXXXXXXX</span>
       </TabPanel>
       <TabPanel
         className="wallettab__tabpanel"
@@ -102,7 +102,7 @@ const WalletTabs = ({ language }) => {
         dir={theme.direction}
       >
         {subscribeDialogText[language].itemThreeContent}
-        <span>1BoatSLRHtKNngkdXEeobR76b53LETtpyT</span>
+        <span>XXXXXXXXXXXXXXXXXXXXXXXX</span>
       </TabPanel>
     </Box>
   );

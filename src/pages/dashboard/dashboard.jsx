@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import AccountInfo from "../../utils/dashboardPages/accountInfo";
 import OrderInfo from "../../utils/dashboardPages/orderInfo";
 import Charts from "../../utils/dashboardPages/charts";
+import BotInfo from "../../utils/dashboardPages/bot";
 
 const Dashboard = ({ auth, subscribed }) => {
   const { state } = useParams();
@@ -35,6 +36,7 @@ const Dashboard = ({ auth, subscribed }) => {
             {pageState === "account" && <AccountInfo />}
             {pageState === "orders" && <OrderInfo />}
             {pageState === "charts" && <Charts />}
+            {pageState === "bot" && <BotInfo />}
           </Grid>
         </>
       ) : (

@@ -1,0 +1,19 @@
+.charts {
+  &__title {
+    color: $text-color-primary;
+    padding: 1rem 2rem;
+  }
+  &__textfield {
+    width: 90%;
+    max-width: 400px;
+    margin: 1rem !important;
+    border-bottom: 0.1px solid $theme-color-primary !important;
+  }
+  &__button {
+    margin: 1rem 0 !important;
+  }
+  &__buttongrid {
+    @include displayFlexCenter;
+    flex-direction: column !important;
+  }
+}

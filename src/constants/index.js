@@ -9,9 +9,10 @@ import { subExpiredText } from "./subExpiredText";
 import { dashboardMenuText } from "./dashboardMenuText";
 import { dashboardText } from "./dashboardText";
 import { portfolioText } from "./portfolioText";
-import { testPortfolio, orderInfo } from "./testData";
+import { testPortfolio, orderInfo, botInfo } from "./testData";
 import { orderInfoText } from "./orderInfoText";
 import { chartsInfoText } from "./chartsInfo";
+import { botInfoText } from "./botInfoText";
 
 export {
   homepageText,
@@ -29,4 +30,6 @@ export {
   orderInfo,
   orderInfoText,
   chartsInfoText,
+  botInfo,
+  botInfoText,
 };
