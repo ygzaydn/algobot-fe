@@ -1,58 +1,64 @@
 .botInfo {
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
 
-  &__title {
-    color: $text-color-primary;
-    padding: 1rem 2rem;
-  }
-  &__header {
-    & tr {
-      & th {
-        background-color: $theme-color-primary;
+    &__title {
         color: $text-color-primary;
-        border: none;
-        @include yesevaFont;
-      }
+        padding: 1rem 2rem;
     }
-  }
-  &__item {
-    & th,
-    td {
-      border: none;
-      color: $text-color-primary;
+    &__header {
+        & tr {
+            & th {
+                background-color: $theme-color-primary;
+                color: $text-color-primary;
+                border: none;
+                @include yesevaFont;
+            }
+        }
     }
-    & td {
-      color: $text-color-secondary;
+    &__item {
+        & th,
+        td {
+            border: none;
+            color: $text-color-primary;
+        }
+        & td {
+            color: $text-color-secondary;
+        }
+        &--active {
+            color: $text-color-primary !important;
+        }
+        &--passive {
+            color: $text-color-secondary !important;
+            text-decoration: line-through;
+        }
+        &--posLow {
+            color: yellowgreen !important;
+        }
+        &--posHigh {
+            color: lightgreen !important;
+        }
+        &--neg {
+            color: red !important;
+        }
+        &--low {
+            color: lightgreen !important;
+        }
+        &--medium {
+            color: yellow !important;
+        }
+        &--high {
+            color: orangered !important;
+        }
     }
-    &--active {
-      color: $text-color-primary !important;
-    }
-    &--passive {
-      color: $text-color-secondary !important;
-      text-decoration: line-through;
-    }
-    &--posLow {
-      color: yellowgreen !important;
-    }
-    &--posHigh {
-      color: lightgreen !important;
-    }
-    &--neg {
-      color: red !important;
-    }
-    &--low {
-      color: lightgreen !important;
-    }
-    &--medium {
-      color: yellow !important;
-    }
-    &--high {
-      color: orangered !important;
-    }
-  }
 
-  &__newBotGrid {
-    padding: 2rem-;
-    @include displayFlexCenter;
-  }
+    &__newBotGrid {
+        padding: 2rem-;
+        @include displayFlexCenter;
+    }
+
+    &__button {
+        & svg {
+            fill: $text-color-primary;
+        }
+    }
 }

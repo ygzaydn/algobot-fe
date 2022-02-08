@@ -13,23 +13,25 @@ import { testPortfolio, orderInfo, botInfo } from "./testData";
 import { orderInfoText } from "./orderInfoText";
 import { chartsInfoText } from "./chartsInfo";
 import { botInfoText } from "./botInfoText";
+import { botAdditionalInfo } from "./botAdditionalInfoText";
 
 export {
-  homepageText,
-  headerText,
-  footerText,
-  signInText,
-  resetPasswordText,
-  accountText,
-  subscribeDialogText,
-  subExpiredText,
-  dashboardMenuText,
-  dashboardText,
-  portfolioText,
-  testPortfolio,
-  orderInfo,
-  orderInfoText,
-  chartsInfoText,
-  botInfo,
-  botInfoText,
+    homepageText,
+    headerText,
+    footerText,
+    signInText,
+    resetPasswordText,
+    accountText,
+    subscribeDialogText,
+    subExpiredText,
+    dashboardMenuText,
+    dashboardText,
+    portfolioText,
+    testPortfolio,
+    orderInfo,
+    orderInfoText,
+    chartsInfoText,
+    botInfo,
+    botInfoText,
+    botAdditionalInfo,
 };

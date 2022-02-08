@@ -1,0 +1,24 @@
+.bottab {
+    padding: 0.2rem 0;
+    &__title {
+        padding: 2rem 0;
+        text-align: center;
+    }
+    &__info {
+        padding: 0.2rem 3rem;
+        color: $text-color-secondary;
+
+        & strong {
+            color: $text-color-primary;
+            font-size: 110%;
+        }
+    }
+
+    &__center {
+        text-align: center;
+    }
+
+    &__padding {
+        padding-top: 2rem;
+    }
+}
