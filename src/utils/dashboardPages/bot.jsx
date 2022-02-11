@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Grid, Typography, Button } from "@mui/material";
 
@@ -16,6 +16,7 @@ import { language } from "../../redux/selectors";
 import { botInfoText, botInfo } from "../../constants";
 
 import BotRow from "./botRow";
+import AddNewBot from "../addNewBot/addNewBot";
 
 function createData(botName, profit, openPositions) {
     return { botName, profit, openPositions };
@@ -26,8 +27,19 @@ const rows = botInfo.map((el) =>
 );
 
 const BotInfo = ({ language }) => {
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <Grid item xs={12} className="dashboardpage__maingrid--c">
+            <AddNewBot open={open} handleClose={handleClose} />
             <Grid container className="botInfo">
                 <Typography variant="h6" className="botInfo__title">
                     {botInfoText[language].title}
@@ -66,6 +78,7 @@ const BotInfo = ({ language }) => {
                     variant="contained"
                     color="secondary"
                     className="botInfo__newBotButton"
+                    onClick={handleClickOpen}
                 >
                     {botInfoText[language].addNewBot}
                 </Button>
