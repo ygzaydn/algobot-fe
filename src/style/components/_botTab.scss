@@ -21,4 +21,8 @@
     &__padding {
         padding-top: 2rem;
     }
+
+    &__yeseva {
+        @include yesevaFont;
+    }
 }

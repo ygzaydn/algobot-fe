@@ -3,10 +3,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import { botAdditionalInfo } from "../../constants";
+import { botAdditionalInfo, botInfo as generalBotInfo } from "../../constants";
 import { language } from "../../redux/selectors";
 import { connect } from "react-redux";
+import DashboardTabBotInfo from "../dashboardTabPanels/dashboardTabBotInfo";
+import DashboardTabOpenPositions from "../dashboardTabPanels/dashboardTabOpenPositions";
+import DashboardTabClosedPositions from "../dashboardTabPanels/dashboardTabClosedPositions";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,6 +43,9 @@ const BotInfo = ({ language, botInfo }) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const myBot = generalBotInfo.filter(
+        (el) => el.botName === botInfo.botName
+    )[0];
 
     return (
         <Box sx={{ width: "100%" }}>
@@ -65,107 +70,13 @@ const BotInfo = ({ language, botInfo }) => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0} component="div">
-                <Grid container className="bottab">
-                    <Grid item xs={12}>
-                        <Typography variant="h6" className="bottab__title">
-                            {botInfo.botName}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].tpPercentage}{" "}
-                            <strong>5%</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].stopLossPercentage}{" "}
-                            <strong>15%</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].leverageRate}{" "}
-                            <strong>15</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].openPositionNumber}{" "}
-                            <strong>15</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].closedPositionNumber}{" "}
-                            <strong>5</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].walletStart}{" "}
-                            <strong>1000 USDT</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info"
-                        >
-                            <strong>&bull;</strong>{" "}
-                            {botAdditionalInfo[language].walletEnd}{" "}
-                            <strong>1400 USDT</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info bottab__center bottab__padding"
-                        >
-                            {botAdditionalInfo[language].overallProfitAmount}{" "}
-                            <strong>400 USDT</strong>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography
-                            variant="subtitle1"
-                            className="bottab__info bottab__center"
-                        >
-                            {botAdditionalInfo[language].overallProfit}{" "}
-                            <strong>40%</strong>
-                        </Typography>
-                    </Grid>
-                </Grid>
+                <DashboardTabBotInfo botInfo={botInfo} myBot={myBot} />
             </TabPanel>
             <TabPanel value={value} index={1} component="div">
-                Open Positions
+                <DashboardTabOpenPositions botInfo={botInfo} myBot={myBot} />
             </TabPanel>
             <TabPanel value={value} index={2} component="div">
-                Closed Positions
+                <DashboardTabClosedPositions botInfo={botInfo} myBot={myBot} />
             </TabPanel>
         </Box>
     );

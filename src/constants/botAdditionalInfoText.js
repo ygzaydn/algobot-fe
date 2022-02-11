@@ -12,6 +12,11 @@ export const botAdditionalInfo = {
         closedPositionNumber: "Closed Positions:",
         walletEnd: "Balance Amount:",
         walletStart: "Started Balance:",
+        noOpenPosition: "There are no active open order currently.",
+        yesOpenPosition: "Active position(s)",
+        noClosedPosition: "There are no closed order currently.",
+        yesClosedPosition: "Closed position(s)",
+        closePosition: "Close position",
     },
     tr: {
         tabFirst: "Bot Ayarları",
@@ -26,5 +31,10 @@ export const botAdditionalInfo = {
         closedPositionNumber: "Kapalı Pozisyon Sayısı:",
         walletEnd: "Mevcut miktar:",
         walletStart: "Başlangıç miktarı:",
+        noOpenPosition: "Mevcut durumda açık bir emir bulunmamaktadır.",
+        noClosedPosition: "Mevcut durumda kapanmış bir emir bulunmamaktadır.",
+        yesOpenPosition: "Açık pozisyon(lar)",
+        yesClosedPosition: "Kapanmış pozisyon(lar)",
+        closePosition: "Posizyonu kapat",
     },
 };
