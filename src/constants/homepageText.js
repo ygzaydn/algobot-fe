@@ -1,45 +1,49 @@
 export const homepageText = {
     en: {
-        homepageLandingUpText: "Upper text will appear here",
-        homepageLandingMainText: "Example landing page text will appear here",
-        homepageFeaturesTitle: "Features text will appear here",
+        homepageLandingUpText: "Lifesaver crypto bot",
+        homepageLandingMainText:
+            "Scrape, buy, sell & profit with our lightning fast crypto pump bot.",
+        homepageFeaturesTitle: "Argbot Features",
         homepageFeatures: [
             {
-                name: "Feature 1",
-                description: "Explanation of feature 1",
+                name: "Coin Auto-Detect",
+                description:
+                    "This mode will attempt to detect a sudden increase in price/volume and will but the coin based on parameters you set",
                 iconName: "icon-feature-1",
             },
             {
-                name: "Feature 2",
-                description: "Explanation of feature 2",
+                name: "Automatic OCO",
+                description:
+                    "Long gone are the days of having to refresh Binance trade pages and manually crate your OCO limit orders.",
                 iconName: "icon-feature-2",
             },
             {
-                name: "Feature 3",
-                description: "Explanation of feature 3",
+                name: "Secure",
+                description:
+                    "100% safe and private, the API details you store are on your end only. This is guaranteed.",
                 iconName: "icon-feature-3",
             },
         ],
         homepageStatsTitle: "Stats",
         homepageStats: [
             {
-                name: "Category-1",
-                value: 50,
-                unit: "%",
-            },
-            {
-                name: "Category-2",
-                value: 1550,
+                name: "Discord Member",
+                value: 2502,
                 unit: null,
             },
             {
-                name: "Category-3",
-                value: 95,
+                name: "Trade success",
+                value: 97,
                 unit: "%",
             },
             {
-                name: "Category-4",
-                value: 505,
+                name: "Subscribed member",
+                value: 735,
+                unit: null,
+            },
+            {
+                name: "Transaction/day",
+                value: 53,
                 unit: null,
             },
         ],
@@ -47,27 +51,27 @@ export const homepageText = {
         faqInfo: [
             {
                 title: "FAQ-1",
-                firstDetail: "FAQ-1 First Detail",
+                firstDetail: "What operating systems does it run on?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "Windows (64-bit) only, however with enough demand we may make it available on other platforms. We recommend running it on a Windows VPS in Tokyo anyway, so the platform doesn’t matter too much.",
             },
             {
                 title: "FAQ-2",
-                firstDetail: "FAQ-2 First Detail",
+                firstDetail: "Will the bot experience any downtime?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet. Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet. Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet. Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "No, as it runs on your local machine there will be no possibility of downtime. Any known issues with the bot will be posted in the outages channel in our Discord – along with Binance network outages.",
             },
             {
                 title: "FAQ-3",
-                firstDetail: "FAQ-3 First Detail",
+                firstDetail: "Will the bot automatically make trades for me?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "If you are using the coin detection feature, yes. Depending on your settings it will constantly monitor the market and buy/sell at your profit/stop-loss target for you. When it comes to pumps, the bot will not be automated as we recommend you adjust your P/L settings for each pump depending on what server is running it.",
             },
             {
                 title: "FAQ-4",
-                firstDetail: "FAQ-4 First Detail",
+                firstDetail: "Can I get a discount?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet. Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "No, but if you invite 2 friends to the server and they each purchase a license (quoting your Discord username) – you will get one month free. This can also stack.",
             },
         ],
     },
