@@ -1,47 +1,48 @@
 .form {
-  @include displayFlexCenter;
-  padding: 4rem 6rem;
-  min-height: 600px;
-  @include respond(tab-port) {
-    min-height: 450px;
-  }
-  background-color: black;
-  border-radius: 50px;
-  box-shadow: 0.2px 0.2px 6px $text-color-secondary,
-    -0.2px -0.2px 6px $text-color-secondary;
-  &__titlegrid {
     @include displayFlexCenter;
-  }
-  &__fieldgrid {
-    @include displayFlexCenter;
-    flex-direction: column !important;
-  }
-  &__sendgrid {
-    @include displayFlexCenter;
-  }
-  &__textgrid {
-    @include displayFlexCenter;
-  }
+    padding: 4rem 6rem;
+    min-height: 600px;
+    max-width: 500px;
+    @include respond(tab-port) {
+        min-height: 450px;
+    }
+    background-color: black;
+    border-radius: 50px;
+    box-shadow: 0.2px 0.2px 6px $text-color-secondary,
+        -0.2px -0.2px 6px $text-color-secondary;
+    &__titlegrid {
+        @include displayFlexCenter;
+    }
+    &__fieldgrid {
+        @include displayFlexCenter;
+        flex-direction: column !important;
+    }
+    &__sendgrid {
+        @include displayFlexCenter;
+    }
+    &__textgrid {
+        @include displayFlexCenter;
+    }
 
-  &__titlebutton {
-    border: 0;
-    &--disabled {
-      background: transparent !important;
+    &__titlebutton {
+        border: 0;
+        &--disabled {
+            background: transparent !important;
+        }
+        &--active {
+            background: $theme-color-primary !important;
+            cursor: default !important;
+        }
     }
-    &--active {
-      background: $theme-color-primary !important;
-      cursor: default !important;
+    &__fielditem {
+        padding: 1.5rem 0;
     }
-  }
-  &__fielditem {
-    padding: 1.5rem 0;
-  }
-  &__textitem {
-    color: $text-color-secondary;
-    cursor: pointer;
-  }
-  &__sendbutton {
-    border-radius: 20px !important;
-    padding: 0.5rem 2rem !important;
-  }
+    &__textitem {
+        color: $text-color-secondary;
+        cursor: pointer;
+    }
+    &__sendbutton {
+        border-radius: 20px !important;
+        padding: 0.5rem 2rem !important;
+    }
 }

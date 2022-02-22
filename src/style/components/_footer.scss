@@ -1,23 +1,29 @@
 .footer {
-  justify-content: center;
-  align-items: center;
-  padding: 6rem 0 1rem 0;
-  max-width: 1400px;
-  margin: auto;
-
-  &__grid {
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 1rem 0;
+    max-width: 1400px;
     margin: auto;
-    color: $text-color-primary;
-    text-align: center;
-  }
 
-  &__name {
-    padding-top: 2rem;
-  }
-  &__info {
-    color: $text-color-secondary;
-  }
-  &__rights {
-    padding-top: 8rem;
-  }
+    &__grid {
+        margin: auto;
+        color: $text-color-primary;
+        text-align: center;
+    }
+
+    &__name {
+        padding-top: 2rem;
+    }
+    &__info {
+        color: $text-color-secondary;
+    }
+    &__rights {
+        padding-top: 8rem;
+    }
+    &__logo {
+        &--image {
+            max-height: 100px;
+            cursor: pointer;
+        }
+    }
 }

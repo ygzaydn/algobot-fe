@@ -77,46 +77,50 @@ export const homepageText = {
     },
 
     tr: {
-        homepageLandingUpText: "Üst metin burada bulunacak",
-        homepageLandingMainText: "Örnek landing page metni burada bulunacak",
-        homepageFeaturesTitle: "Features kısım başlığı burada",
+        homepageLandingUpText: "Cankurtaran kripto botunuz",
+        homepageLandingMainText:
+            "Yıldırım hızındaki kripto botumuzla kripto alın, satın ve kar edin.",
+        homepageFeaturesTitle: "Argbot Özellikleri",
         homepageFeatures: [
             {
-                name: "Özellik 1",
-                description: "Özellik 1'in açıklaması",
+                name: "Otomaik coin algılama",
+                description:
+                    "Argbot'un özel algoritması, marketi düzenli olarak tarayarak, en uygun pozisyona sahip coinleri bulur.",
                 iconName: "icon-feature-1",
             },
             {
-                name: "Özellik 2",
-                description: "Özellik 2'nin açıklaması",
+                name: "Otomaik OCO",
+                description:
+                    "Argbot, Binance OCO özelliğini kullanarak pozisyonların güvenliğini artırır.",
                 iconName: "icon-feature-2",
             },
             {
-                name: "Özellik 3",
-                description: "Özellik 3'ün açıklaması",
+                name: "Güvenilir",
+                description:
+                    "Argbot, %100 güvenilir ve özeldir, bizlere vereceğiniz API key'i sadece işlemlere girmemizi sağlar.",
                 iconName: "icon-feature-3",
             },
         ],
         homepageStatsTitle: "İstatistikler",
         homepageStats: [
             {
-                name: "Kategori-1",
-                value: 50,
-                unit: "%",
-            },
-            {
-                name: "Kategori-2",
-                value: 1550,
+                name: "Discord Üyesi",
+                value: 2502,
                 unit: null,
             },
             {
-                name: "Kategori-3",
-                value: 95,
+                name: "Trade Başarısı",
+                value: 97,
                 unit: "%",
             },
             {
-                name: "Kategori-4",
-                value: 505,
+                name: "Abone Kullanıcı",
+                value: 735,
+                unit: null,
+            },
+            {
+                name: "Gün/İşlem",
+                value: 53,
                 unit: null,
             },
         ],
@@ -124,27 +128,28 @@ export const homepageText = {
         faqInfo: [
             {
                 title: "SSS-1",
-                firstDetail: "SSS-1 First Detail",
+                firstDetail: "Argbot hangi işletim sisteminde çalışır?",
                 fullDetail:
-                    "Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "Yalnızca Windows (64-bit), ancak yeterli taleple diğer platformlarda kullanılabilir hale getirebiliriz. Yine de Tokyo'da bir Windows VPS'de çalıştırmanızı öneririz, bu nedenle platform çok önemli değil.",
             },
             {
                 title: "SSS-2",
-                firstDetail: "SSS-2 First Detail",
+                firstDetail: "Argbot herhangi bir kesinti yaşayacak mı?",
                 fullDetail:
-                    "Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "Hayır, yerel makinenizde çalıştığı için kesinti olasılığı olmayacak. Botla ilgili bilinen herhangi bir sorun, Binance ağ kesintileriyle birlikte Discord'umuzdaki kesintiler kanalında yayınlanacaktır.",
             },
             {
                 title: "SSS-3",
-                firstDetail: "SSS-3 First Detail",
+                firstDetail:
+                    "Argbot benim için otomatik olarak işlem yapacak mı?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "Coin algılama özelliğini kullanıyorsanız evet. Ayarlarınıza bağlı olarak piyasayı sürekli takip edecek ve sizin için kar/zarar durdurma hedefinizde alım/satım yapacak. Pump söz konusu olduğunda, bot otomatik olarak otomatikleştirilmeyecek. Hangi sunucunun çalıştırdığına bağlı olarak her pump için P/L ayarlarınızı yapmanızı öneririz.",
             },
             {
                 title: "SSS-4",
-                firstDetail: "SSS-4 First Detail",
+                firstDetail: "İndirim alabilir miyim?",
                 fullDetail:
-                    " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.",
+                    "Hayır, ancak sunucuya 2 arkadaşınızı davet ederseniz ve her biri bir lisans satın alırsa (Discord kullanıcı adınızı belirterek) - bir ay ücretsiz alırsınız. Bu kampanyadan sürekli faydalanabilirsiniz.",
             },
         ],
     },

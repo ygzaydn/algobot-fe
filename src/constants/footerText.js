@@ -1,7 +1,7 @@
 export const footerText = {
     en: {
         companyName: "Argbot",
-        additionalInfo: "#1 Pump and Dump Bot",
+        additionalInfo: "Make your crypto work",
         rights: "All rights reserved",
     },
     tr: {

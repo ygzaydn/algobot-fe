@@ -1,32 +1,32 @@
 .dashboardpage {
-  min-height: 80vh;
-  padding: 2rem 0rem;
-  max-width: 1600px;
-  margin: auto;
-  @include respond(tab-port) {
-    padding: 0rem 1rem;
-  }
+    min-height: 90vh;
+    padding: 2rem 0rem;
+    max-width: 1600px;
+    margin: auto;
+    @include respond(tab-port) {
+        padding: 0rem 1rem;
+    }
 
-  &__maingrid {
-    padding: 1rem 2rem;
-    &--a {
-      max-height: 60%;
-      @include respond(tab-port) {
-        width: 100%;
-      }
+    &__maingrid {
+        padding: 1rem 2rem;
+        &--a {
+            max-height: 60%;
+            @include respond(tab-port) {
+                width: 100%;
+            }
+        }
+        &--b {
+            max-height: 60%;
+            padding: 0 0 0 2rem;
+            @include respond(tab-port) {
+                width: 100%;
+                padding: 0;
+            }
+        }
+        &--c {
+            margin: 1rem 0 !important;
+            padding: 1rem 0;
+            border: 1px solid lightgray;
+        }
     }
-    &--b {
-      max-height: 60%;
-      padding: 0 0 0 2rem;
-      @include respond(tab-port) {
-        width: 100%;
-        padding: 0;
-      }
-    }
-    &--c {
-      margin: 1rem 0 !important;
-      padding: 1rem 0;
-      border: 1px solid lightgray;
-    }
-  }
 }
