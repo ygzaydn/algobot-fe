@@ -4,18 +4,25 @@ import { Typography, Grid } from "@mui/material";
 import { footerText } from "../../constants";
 import { connect } from "react-redux";
 import { language } from "../../redux/selectors";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logos/logo.png";
 
 const Footer = ({ language }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const navigateToHome = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+    };
     return (
         <Grid container className="footer">
             <Grid container>
                 <Grid item xs={12} className="footer__grid">
                     <img
                         color="textPrimary"
-                        onClick={() => navigate("/")}
+                        onClick={() => navigateToHome()}
                         className="footer__logo--image"
                         src={Logo}
                         alt="website-header-logo"

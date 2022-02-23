@@ -112,7 +112,8 @@
         &__logogrid {
             @include displayFlexCenter;
             height: 100%;
-            @include respond(tab-port) {
+
+            @include respond(phone) {
                 display: none;
             }
 
@@ -211,6 +212,35 @@
             }
             & svg {
                 color: $text-color-primary;
+            }
+        }
+    }
+
+    &__discord {
+        margin: 2rem 0 8rem 0;
+        padding: 6rem 3rem;
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        background-color: $theme-color-secondary;
+        &--text {
+            color: $text-color-primary;
+            @include yesevaFont;
+            text-align: center;
+            padding: 1rem 0 3rem 0;
+        }
+        &--button {
+            color: $text-color-primary;
+            border: 0.1px solid $text-color-primary;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-size: 1.25rem;
+            &:hover {
+                background-color: $text-color-primary;
+                color: $theme-color-secondary;
             }
         }
     }

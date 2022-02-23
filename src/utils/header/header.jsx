@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { Grid } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { headerText } from "../../constants";
@@ -15,7 +15,25 @@ import Logo from "../../assets/logos/logo-2.png";
 
 const Header = ({ language, auth }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const header = useRef("");
+
+    const navigateToHome = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+    };
+
+    const focusNavigate = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+        const faqGrid = document.getElementById("faq");
+        faqGrid.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    };
 
     return (
         <header>
@@ -23,7 +41,7 @@ const Header = ({ language, auth }) => {
                 <Grid item xs={4} className="header__logo">
                     <img
                         color="textPrimary"
-                        onClick={() => navigate("/")}
+                        onClick={() => navigateToHome()}
                         className="header__logo--image"
                         src={Logo}
                         alt="website-header-logo"
@@ -33,12 +51,12 @@ const Header = ({ language, auth }) => {
                     <HeaderMenuItem
                         size="desktop"
                         text={headerText[language].menuItem1}
-                        clickFunc={() => navigate("/")}
+                        clickFunc={() => navigateToHome()}
                     />
                     <HeaderMenuItem
                         size="desktop"
                         text={headerText[language].menuItem2}
-                        clickFunc={() => navigate("/#faq")}
+                        clickFunc={() => focusNavigate()}
                     />
                     <HeaderLanguageButton />
                     {auth && (

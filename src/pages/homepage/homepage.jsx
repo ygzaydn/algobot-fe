@@ -120,6 +120,17 @@ const Homepage = ({ language }) => {
                         ))}
                     </Grid>
                 </Grid>
+                <Grid container className="homepage__discord">
+                    <Typography
+                        variant="h4"
+                        className="homepage__discord--text"
+                    >
+                        {homepageText[language].discordText}
+                    </Typography>
+                    <div className="homepage__discord--button">
+                        {homepageText[language].discordButtonText}
+                    </div>
+                </Grid>
                 <Grid container className="homepage__stats">
                     <YesevaTitle
                         text={homepageText[language].homepageStatsTitle}

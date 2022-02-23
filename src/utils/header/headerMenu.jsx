@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
@@ -13,85 +13,104 @@ import { connect } from "react-redux";
 import { isAuth, language } from "../../redux/selectors";
 
 const HeaderMenu = ({ language, auth }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-  return (
-    <>
-      <MenuIcon
-        id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : "undefined"}
-        onClick={handleClick}
-        className="header__menu--item"
-      />
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          style: {
-            borderRadius: 5,
-            border: "1px solid white",
-          },
-        }}
-        MenuListProps={{
-          style: {
-            borderBottom: "0.1px solid lightgray",
-            arialabelledby: "basic-button",
-          },
-        }}
-      >
-        <MenuItem onClick={handleClose} className="header__menu--mobile">
-          <HeaderMenuItem
-            status="active"
-            text={headerText[language].menuItem1}
-            clickFunc={() => navigate("/")}
-            size="mobile"
-          />
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="header__menu--mobile">
-          <HeaderMenuItem
-            text={headerText[language].menuItem2}
-            clickFunc={() => navigate("/#faq")}
-            size="mobile"
-          />
-        </MenuItem>
-        {!auth ? (
-          <MenuItem onClick={handleClose} className="header__menu--mobile">
-            <HeaderMenuItem
-              text={headerText[language].menuItem3}
-              size="mobile"
-              clickFunc={() => navigate("/signin")}
+    const navigateToHome = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+    };
+
+    return (
+        <>
+            <MenuIcon
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : "undefined"}
+                onClick={handleClick}
+                className="header__menu--item"
             />
-          </MenuItem>
-        ) : (
-          <MenuItem onClick={handleClose} className="header__menu--mobile">
-            <HeaderMenuItem
-              text={headerText[language].menuItem4}
-              size="mobile"
-              clickFunc={() => navigate("/dashboard/account")}
-            />
-          </MenuItem>
-        )}
-      </Menu>
-    </>
-  );
+            <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                    style: {
+                        borderRadius: 5,
+                        border: "1px solid white",
+                    },
+                }}
+                MenuListProps={{
+                    style: {
+                        borderBottom: "0.1px solid lightgray",
+                        arialabelledby: "basic-button",
+                    },
+                }}
+            >
+                <MenuItem
+                    onClick={handleClose}
+                    className="header__menu--mobile"
+                >
+                    <HeaderMenuItem
+                        status="active"
+                        text={headerText[language].menuItem1}
+                        clickFunc={() => navigateToHome()}
+                        size="mobile"
+                    />
+                </MenuItem>
+                <MenuItem
+                    onClick={handleClose}
+                    className="header__menu--mobile"
+                >
+                    <HeaderMenuItem
+                        text={headerText[language].menuItem2}
+                        clickFunc={() => navigateToHome()}
+                        size="mobile"
+                    />
+                </MenuItem>
+                {!auth ? (
+                    <MenuItem
+                        onClick={handleClose}
+                        className="header__menu--mobile"
+                    >
+                        <HeaderMenuItem
+                            text={headerText[language].menuItem3}
+                            size="mobile"
+                            clickFunc={() => navigate("/signin")}
+                        />
+                    </MenuItem>
+                ) : (
+                    <MenuItem
+                        onClick={handleClose}
+                        className="header__menu--mobile"
+                    >
+                        <HeaderMenuItem
+                            text={headerText[language].menuItem4}
+                            size="mobile"
+                            clickFunc={() => navigate("/dashboard/account")}
+                        />
+                    </MenuItem>
+                )}
+            </Menu>
+        </>
+    );
 };
 
 const mapStateToProps = (state) => ({
-  language: language(state),
-  auth: isAuth(state),
+    language: language(state),
+    auth: isAuth(state),
 });
 
 export default connect(mapStateToProps, null)(HeaderMenu);

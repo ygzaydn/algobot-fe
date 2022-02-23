@@ -24,6 +24,9 @@ export const homepageText = {
                 iconName: "icon-feature-3",
             },
         ],
+        discordText:
+            "To get more information & embrace the community, don't forget to join our discord channel",
+        discordButtonText: "Join Discord",
         homepageStatsTitle: "Stats",
         homepageStats: [
             {
@@ -101,6 +104,9 @@ export const homepageText = {
                 iconName: "icon-feature-3",
             },
         ],
+        discordText:
+            "Argbot hakkında daha fazla bilgi almak ve topluluğumuzun bir parçası olmak için Discord sunucumuza katılmayı unutma",
+        discordButtonText: "Discord'a katıl",
         homepageStatsTitle: "İstatistikler",
         homepageStats: [
             {
