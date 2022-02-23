@@ -31,6 +31,17 @@ const HeaderMenu = ({ language, auth }) => {
         }
     };
 
+    const focusNavigate = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+        const faqGrid = document.getElementById("faq");
+        faqGrid.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    };
+
     return (
         <>
             <MenuIcon
@@ -76,7 +87,7 @@ const HeaderMenu = ({ language, auth }) => {
                 >
                     <HeaderMenuItem
                         text={headerText[language].menuItem2}
-                        clickFunc={() => navigateToHome()}
+                        clickFunc={() => focusNavigate()}
                         size="mobile"
                     />
                 </MenuItem>
