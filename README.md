@@ -2,4 +2,4 @@ Argbot is a clone of a crypto bot website. The website is not connected with any
 
 Stack: Javascript - Redux - React - SCSS- Firebase - Material UI
 
-Note: You can login with any id/password combination to check overall system.
+> Note: You can login with any id/password combination to check overall system.
