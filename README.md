@@ -4,4 +4,4 @@ Stack: Javascript - Redux - React - SCSS- Firebase - Material UI
 
 > Note: You can login with any id/password combination to check overall system.
 
-[you can reach webpage here](https://argbotxyz.web.app/))
+[you can reach webpage here](https://argbotxyz.web.app/)
